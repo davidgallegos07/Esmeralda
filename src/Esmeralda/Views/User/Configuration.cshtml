@@ -1,0 +1,130 @@
+﻿@{
+    ViewBag.Title = "Configuration";
+}
+
+<div id="wrapper">
+    <nav class="navbar-default navbar-static-side" role="navigation">
+        <div class="sidebar-collapse">
+            <ul class="nav" id="side-menu">
+                <li>
+                    <div class="user-info-wrapper">
+                        <div class="user-info-profile-image">
+                            <!-- <img src="img/profile-1.jpg" alt=""  width="65" height="65"> -->
+                            <i class="fa fa-user fa-4x "></i>
+                        </div>
+                        <div class="user-info">
+                            <div class="user-welcome">Bienvenido</div>
+
+                            <div class="username">Usuario: <strong>@User.Identity.Name</strong></div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <a asp-action="UserPanel" asp-controller="User"><i class="fa fa-envelope fa-fw fa-3x"></i>Ordenes</a>
+                </li>
+                <li>
+                    <a asp-action="Restaurants" asp-controller="User"><i class="fa fa-cutlery fa-fw fa-3x"></i>Restaurantes</a>
+                </li>
+                <li>
+                    <a asp-action="Configuration" asp-controller="User"><i class="fa fa-wrench fa-fw fa-3x"></i>Configuracion</a>
+                </li>
+            </ul>
+            <!-- /#side-menu -->
+        </div>
+        <!-- /.sidebar-collapse -->
+    </nav>
+    <!-- /.navbar-static-side -->
+
+    <div id="page-wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="page-header text-success"> ORDENES </h2>
+            </div>
+        </div>
+        <!-- /.col-lg-12 -->
+        <hr>
+        <div class="col-md-6 col-md-offset-3 col-xs-8 col-xs-offset-2">
+            <div role="form">
+                <div class="form-group">
+                    <label for="Email">Correo Electronico</label>
+                    <button class="btn btn-sm btn-warning pull-right">
+                        <i class="fa fa-pencil fa-fw"></i>Editar
+                    </button>
+                    <input type="email" class="form-control" placeholder="name@example.com" value="aidacanchola@gmail.com"></input>
+                </div>
+                <div class="form-group">
+                    <label for="password">Contraseña</label>
+                    <button class="btn btn-sm btn-warning pull-right" data-toggle="collapse" data-target="#pass">
+                        <i class="fa fa-pencil fa-fw"></i>Editar
+                    </button>
+                    <input type="password" class="form-control" value="*********" />
+                </div>
+                <div class="collapse" id="pass">
+                    <div class="form-group">
+                        <label for="password">Contraseña anterior</label>
+                        <input type="password" class="form-control" placeholder="" value="" />
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Contraseña nueva</label>
+                        <input type="password" class="form-control" placeholder="Al menos 5 caracteres" value="" />
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Repetir contraseña nueva</label>
+                        <input type="password" class="form-control" value="" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="Name">Nombre</label>
+                    <button class="btn btn-sm btn-warning pull-right">
+                        <i class="fa fa-pencil fa-fw"></i>Editar
+                    </button>
+                    <input type="text" class="form-control" value="Aida" />
+                </div>
+                <div class="form-group">
+                    <label for="LastName">Apellido</label>
+                    <button class="btn btn-sm btn-warning pull-right">
+                        <i class="fa fa-pencil fa-fw"></i>Editar
+                    </button>
+                    <input type="text" class="form-control" value="Canchola" />
+                </div>
+                <hr>
+                <div id="myModal" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title text-danger">COMPARTE <i class="fa fa-facebook"></i></h4>
+                            </div>
+                            <div class="modal-body">
+                                <p class="text-primary">QUEREMOS DARTE LAS GRACIAS POR TU PREFERENCIA CON UN</p>
+                                <p class="text-danger">REGALO MUY ESPECIAL</p>
+                                <blockquote class="blockquote-reverse">
+                                    <p class="text-justify">Comparte nuestra pagina en tu muro y obten de regalo 100 pesos
+                                    En cualquiera de nuestros restaurantes afiliados</p>
+                                    <footer><strong>GOFOOD</strong></footer>
+                                </blockquote>
+                                
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" data-dismiss="modal">
+                                    <i class="fa fa-facebook fa-fw fa-x2"></i>Compartir ahora
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <button class="btn btn-danger pull-right" data-toggle="modal" data-target="#myModal">Promoción</button>
+
+            </div>
+        </div>
+        <!-- /.row -->
+    </div>
+</div>
+<!-- /#page-wrapper -->
+@section Scripts{
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+

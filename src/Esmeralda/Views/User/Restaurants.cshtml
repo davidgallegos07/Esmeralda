@@ -1,0 +1,161 @@
+﻿@{
+    ViewBag.Title = "Restaurantes";
+}
+
+<div id="wrapper"  ng-app="ui.bootstrap.demo">
+    <nav class="navbar-default navbar-static-side" role="navigation">
+        <div class="sidebar-collapse">
+            <ul class="nav" id="side-menu">
+                <li>
+                    <div class="user-info-wrapper">
+                        <div class="user-info-profile-image">
+                            <i class="fa fa-user fa-4x "></i>
+                        </div>
+                        <div class="user-info">
+                            <div class="user-welcome">Bienvenido</div>
+
+                            <div class="username">Usuario: <strong>@User.Identity.Name</strong></div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <a asp-action="UserPanel" asp-controller="User"><i class="fa fa-envelope fa-fw fa-3x"></i>Ordenes</a>
+                </li>
+                <li>
+                    <a asp-action="Restaurants" asp-controller="User"><i class="fa fa-cutlery fa-fw fa-3x"></i>Restaurantes</a>
+                </li>
+                <li>
+                    <a asp-action="Configuration" asp-controller="User"><i class="fa fa-wrench fa-fw fa-3x"></i>Configuracion</a>
+                </li>
+            </ul>
+            <!-- /#side-menu -->
+        </div>
+        <!-- /.sidebar-collapse -->
+    </nav>
+    <!-- /.navbar-static-side -->
+
+    <div id="page-wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="page-header text-success"> RESTAURANTES </h2>
+            </div>
+        </div>
+        <!-- /.col-lg-12 -->
+        <hr>
+            <div class="rfow">
+                @*<div class="col-lg-10 col-xs-12 col-lg-offset-1">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <i class="fa fa-cutlery fa-fw"></i>Restaurantes
+                            <div class="input-group ">
+                                <input type="text" class="form-control" placeholder="Buscar...">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="button">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </span>
+                            </div>
+                        </div>*@
+
+                        <!--RESTAURANTES PANEL-->
+                        <div class="rtow">
+                            <table class="table-condensed" ng-controller="RatingDemoCtrl">
+                                <tr>
+                                    <td>
+                                        <a href="r1.html">
+                                            <img class="img-circle" style="width: 100px;" src="~/img/comidachina.jpg" />
+                                        </a>
+                                        Rating<uib-rating ng-model="rate" max="max" read-only="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null" titles="['one','two','three']" aria-labelledby="default-rating" class="text-warning"></uib-rating>(1078)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a href="r2.html">
+                                            <img class="img-circle" style="width: 100px;" src="~/img/deligourmet.png" />                                            
+                                        </a>
+                                        Rating<uib-rating ng-model="rate" max="max" read-only="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null" titles="['one','two','three']" aria-labelledby="default-rating" class="text-warning"></uib-rating>(8538)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a href="r3.html">
+                                            <img class="img-circle" style="width: 100px;" src="~/img/giussepis.jpg" />                                            
+                                        </a>
+                                        Rating<uib-rating ng-model="rate" max="max" read-only="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null" titles="['one','two','three']" aria-labelledby="default-rating" class="text-warning"></uib-rating>(2588)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a href="r4.html">
+                                            <img class="img-circle" style="width: 100px;" src="~/img/ricardos.jpg" />                                            
+                                        </a>
+                                        Rating<uib-rating ng-model="rate" max="max" read-only="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null" titles="['one','two','three']" aria-labelledby="default-rating" class="text-warning"></uib-rating>(4578)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a href="r5.html">
+                                            <img class="img-circle" style="width: 100px;" src="~/img/postres.png" />
+                                        </a>
+                                        Rating<uib-rating ng-model="rate" max="max" read-only="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null" titles="['one','two','three']" aria-labelledby="default-rating" class="text-warning"></uib-rating>(3378)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a href="r6.html">
+                                            <img class="img-circle" style="width: 100px;" src="~/img/tonka.jpg" />                                            
+                                        </a>
+                                        Rating<uib-rating ng-model="rate" max="max" read-only="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null" titles="['one','two','three']" aria-labelledby="default-rating" class="text-warning"></uib-rating>(3208)
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <!--CIERRA RESTAURANTES PANEL-->
+                        <!-- /.panel-heading -->
+                        <!-- /.panel-body -->
+                    @*</div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+    <!-- /.col-lg-8 -->
+    <!-- /.col-lg-4 -->
+    <!-- Trigger the modal with a button -->
+    <!-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button> -->
+    <!-- Modal -->
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title text-danger">Eliminar</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Estas seguro de Eliminar este alimento?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">
+                        <i class="fa fa-trash-o fa-fw fa-x2"></i>Eliminar
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>*@
+        </div>
+    </div>
+</div>
+<!-- /#page-wrapper -->
+<script src="~/lib/angular/angular.js"></script>
+<script src="~/lib/angular-animate/angular-animate.js"></script>
+<script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-1.3.3.js"></script>
+<script src="~/js/example.js"></script>
+
+
+@section Scripts{
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+

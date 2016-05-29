@@ -1,0 +1,21 @@
+﻿<div class="row">
+    <div class="col-md-4 col-sm-4 col-md-offset-1">
+        <h3 class="text-muted text-center">Registrate como usuario</h3>
+        <hr>
+        <p class="text-success text-center">Siendo usuario de gofood podras hacer tus compras</p>
+        <p class="text-success text-center">de comida rapido y facil</p>
+        <hr>
+        <a asp-controller="Auth" asp-action="RegisterUser" class="btn btn-primary btn-block btn-lg">Registrate Usuario</a>
+    </div>
+    <div class="col-md-4 col-sm-4 col-md-offset-1">
+        <h3 class="text-muted text-center">Registrate como administrador</h3>
+        <hr>
+        <p class="text-success text-center">Empieza a formar parte de gofood</p>
+        <p class="text-success text-center">y aumenta tus ventas</p>
+        <hr>
+        <a asp-controller="Auth" asp-action="RegisterAdmin" class="btn btn-primary btn-block btn-lg">Registrate Administrador</a>
+    </div>
+</div>
+@section Scripts{ 
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

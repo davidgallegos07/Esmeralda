@@ -1,0 +1,149 @@
+﻿@model IEnumerable<Esmeralda.Models.Meal>
+
+@{
+    ViewBag.Title = "Manage";
+}
+
+<div id="wrapper">
+    <nav class="navbar-default navbar-static-side" role="navigation">
+        <div class="sidebar-collapse">
+            <ul class="nav" id="side-menu">
+                <li>
+                    <div class="user-info-wrapper">
+                        <div class="user-info-profile-image">
+                            <!-- <img src="img/profile-1.jpg" alt=""  width="65" height="65"> -->
+                            <i class="fa fa-user fa-4x "></i>
+                        </div>
+                        <div class="user-info">
+                            <div class="user-welcome">Bienvenido</div>
+                            <div class="username">Administrador <strong>@User.Identity.Name</strong></div>
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <a asp-action="Create" asp-controller="Admin"><i class="fa fa-plus fa-fw fa-3x"></i> Agregar</a>
+                </li>
+                <li>
+                    <a asp-action="Category" asp-controller="Admin"><i class="fa fa-table fa-fw fa-3x"></i> Categoria</a>
+                </li>
+                <li>
+                    <a asp-action="AdminPanel" asp-controller="Admin"><i class="fa fa-arrow-left fa-fw fa-3x"></i>Regresar al Panel</a>
+                </li>
+            </ul>
+            <!-- /#side-menu -->
+        </div>
+        <!-- /.sidebar-collapse -->
+    </nav>
+    <!-- /.navbar-static-side -->
+
+    <div id="page-wrapper">
+        <div class="row">
+
+            <div class="col-lg-12">
+                <h2 class="page-header text-success"> MIS ALIMENTOS </h2>
+            </div>
+        </div>
+        <!-- /.col-lg-12 -->
+        <hr>
+        <div class="row">
+            <div class="col-lg-10 col-xs-12 col-lg-offset-1">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <i class="fa fa-cutlery fa-fw"></i>Alimentos
+                        <form asp-action="Manage" asp-controller="Admin">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Buscar..." name="search">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="submit">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </span>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- /.panel-heading -->
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="table-responsive">
+                                    <div class="table table-hover table-striped">
+                                        <table class="table table-hover table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>Nombre</th>
+                                                    <th>Descripción</th>
+                                                    <th>Precio Unitario</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach (var item in Model)
+                                                    {
+                                                        <tr>
+                                                            <td>
+                                                                @Html.DisplayFor(modeItem => item.MealName)
+                                                            </td>
+                                                            <td>
+                                                                @Html.DisplayFor(modelItem => item.Description)
+                                                            </td>
+                                                            <td>
+                                                                @Html.DisplayFor(modelItem => item.Price)
+                                                            </td>
+                                                       
+                                                            <td>
+                                                                <a asp-action="Edit" asp-route-id="@item.MealId" class="btn btn-sm btn-warning">Editar</a>
+                                                            </td>
+                                                            <td>
+                                                                <a asp-action="Details" asp-route-id="@item.MealId" class="btn btn-sm btn-primary">Detalles</a>
+                                                            </td>
+                                                            <td>
+                                                                <a asp-action="Delete" asp-route-id="@item.MealId" class="btn btn-sm btn-danger">Borrar</a>
+                                                            </td>
+                                                        </tr>
+                                                    }
+                                            </tbody>
+                                        </table>
+                                        <!--    </div> -->
+                                        <!-- /.table-responsive -->
+                                    </div>
+                                </div>
+                                <!-- /.row -->
+                            </div>
+                            <!-- /.panel-body -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-8 -->
+                <!-- Trigger the modal with a button -->
+                <!-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button> -->
+                <!-- Modal -->
+                <div id="myModal" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title text-danger">Eliminar</h4>
+                            </div>
+                            <div class="modal-body">
+                                <p>Estas seguro de borrar este alimento?</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">
+                                    <i class="fa fa-trash-o fa-fw fa-x2"></i>Eliminar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /#page-wrapper -->
+    </div>
+</div>
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}
