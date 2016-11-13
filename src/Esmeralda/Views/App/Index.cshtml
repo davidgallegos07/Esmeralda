@@ -1,14 +1,23 @@
 ﻿@{
     ViewBag.Title = "Gofoodapp";
 }
-<div class="row">
-    <div class="">
-        <div class="container-fluid">
-            <div class="col-sm-4 col-sm-offset-4">
-                <img src="~/img/gf.png" class="img-responsive" alt="gf" />
-                <a asp-controller="Auth" asp-action="Login" class="btn btn-danger btn-lg btn-block">Login</a>
+@Html.Partial("_NavBarFull")
+<div class="hero">
+    <div class="row">
+        <div class="col s12 m8 l6 offset-m2 offset-l3">
+            <h1 class="center">COMPRA SIN LARGAS FILAS DE ESPERA</h1>
+            <h3 class="center">Esta pagina esta dedicada a toda persona que desea hacer una compra de cualquier alimento en la cafeteria de UABC</h3>
+            <div class="center">
+            </div>
+            <div class="row">
+                <div class="col s12 m6 l6">
+                    <a asp-controller="App" asp-action="Restaurants" class="btn btn-large btn-block">Restaurantes</a>
+                </div>
+                <div class="col s12 m6 l6">
+                    <a asp-controller="Auth" asp-action="RegisterUser" class="btn btn-large btn-block">Unete</a>
+                </div>
             </div>
         </div>
     </div>
 </div>
-
+@Html.Partial("_Footer")

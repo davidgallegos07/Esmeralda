@@ -170,5 +170,16 @@ namespace Esmeralda.Controllers.Web
 
             return View(vm);
         }
+
+        public async Task<IActionResult> Configuration()
+        {
+            ApplicationUser user = await _repository.FindUser(User.GetUserId());
+            return View(user);
+        }
+        public IActionResult Reports()
+        {
+            return View();
+        }
+        
     }
 }

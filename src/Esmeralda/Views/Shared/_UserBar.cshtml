@@ -1,0 +1,11 @@
+﻿<div>
+    <ul id="slide-out" class="side-nav fixed">
+        @*<li class=""><img class="center responsive-img" src="img/logo.jpg" alt="logo"></li>*@
+        <li><p>@User.Identity.Name</p></li>
+        <li class="waves-effect waves-block"><a asp-action="UserPanel" asp-controller="User"><i class="fa fa-envelope fa-fw"></i>Ordenes</a></li>
+        <li class="waves-effect waves-block"><a asp-action="Restaurants" asp-controller="App"><i class="fa fa-group fa-fw"></i>Restaurantes</a></li>
+        <li class="waves-effect waves-block"><a asp-action="Configuration" asp-controller="User"><i class="fa fa-wrench fa-fw"></i>Configuración</a></li>
+        <li class="waves-effect waves-block"><a asp-action="Logout" asp-controller="Auth"><i class="fa fa-power-off fa-fw"></i>Logout</a></li>
+    </ul>
+    <a href="#" data-activates="slide-out" class="button-collapse"></a>
+</div>

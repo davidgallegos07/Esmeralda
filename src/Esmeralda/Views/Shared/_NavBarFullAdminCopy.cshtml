@@ -1,0 +1,67 @@
+﻿<nav>
+    <div class="nav-wrapper">
+        <a class="brand-logo" asp-controller="App" asp-action="Index">
+            <img src="~/img/logos/gf-logo-w-bar.png" />
+        </a>
+        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="fa fa-navicon"></i></a>
+        <ul class="right hide-on-med-and-down">
+            <li><a asp-controller="Auth" asp-action="Login"><i class="fa fa-user fa-fw"></i></a></li>
+        </ul>
+        <ul class="side-nav" id="mobile-demo">
+            <li><p>aqui usuario</p></li>
+            @*<li><a asp-controller="Auth" asp-action="Login"><i class="fa fa-user fa-2x fa-fw"></i></a></li>*@
+
+            <li class="waves-effect waves-block"><a asp-action="Manage" asp-controller="Admin"><i class="fa fa-cutlery fa-fw fa-2x"></i> Mis alimentos</a></li>
+            <li class="waves-effect waves-block"><a asp-action="Reports" asp-controller="Admin"><i class="fa fa-area-chart fa-fw fa-2x"></i>Reportes</a></li>
+            <li class="waves-effect waves-block"><a asp-action="Configuration" asp-controller="Admin"><i class="fa fa-wrench fa-fw fa-2x"></i>Configuración</a></li>
+            <li><a asp-controller="Auth" asp-action="Logout"><i class="fa fa-power-off fa-fw fa-2x"></i>Logout</a></li>
+            <!--prueba dropdown-->
+            <li class="no-padding">
+                <ul class="collapsible collapsible-accordion">
+                    <li>
+                        <a class="collapsible-header">DropdownProb<i class="material-icons">arrow_drop_down</i></a>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li><a href="#!">First</a></li>
+                                <li><a href="#!">Second</a></li>
+                                <li><a href="#!">Third</a></li>
+                                <li><a href="#!">Fourth</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <!--prueba dropdown-->
+
+        </ul>
+    </div>
+</nav>
+<div class="sidebaremb">
+    <ul id="slide-out" class="side-nav fixed">
+        <li class="waves-effect waves-block">
+            <a href="#qbit">barra embedded</a>
+        </li>
+        <li class="waves-effect waves-block"><a asp-action="Manage" asp-controller="Admin"><i class="fa fa-cutlery fa-fw fa-2x"></i> Mis alimentos</a></li>
+        <li class="waves-effect waves-block"><a asp-action="Reports" asp-controller="Admin"><i class="fa fa-area-chart fa-fw fa-2x"></i>Reportes</a></li>
+        <li class="waves-effect waves-block"><a asp-action="Configuration" asp-controller="Admin"><i class="fa fa-wrench fa-fw fa-2x"></i>Configuración</a></li>
+        <li><a asp-controller="Auth" asp-action="Logout"><i class="fa fa-power-off fa-fw fa-2x"></i>Logout</a></li>
+        <!--prueba dropdown-->
+        <li class="no-padding">
+            <ul class="collapsible collapsible-accordion">
+                <li>
+                    <a class="collapsible-header">Dropdown</a>
+                    <div class="collapsible-body">
+                        <ul>
+                            <li><a href="#!">First</a></li>
+                            <li><a href="#!">Second</a></li>
+                            <li><a href="#!">Third</a></li>
+                            <li><a href="#!">Fourth</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </li>
+        <!--prueba dropdown-->
+
+    </ul>
+</div>

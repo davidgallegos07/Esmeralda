@@ -23,6 +23,8 @@ namespace Esmeralda.Migrations
 
                     b.Property<string>("ApplicationUserId");
 
+                    b.Property<string>("ImageUrl");
+
                     b.HasKey("AdminProfileId");
                 });
 

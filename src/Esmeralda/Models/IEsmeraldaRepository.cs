@@ -10,5 +10,6 @@ namespace Esmeralda.Models
         IEnumerable<SelectListItem> GetMealsCategory(string userName, int selected);
         ApplicationUser FindUserName(string name);
         ApplicationUser FindUserEmail(string email);
+        Task<ApplicationUser> FindUser(string id);
     }
 }

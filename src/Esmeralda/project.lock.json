@@ -1540,6 +1540,40 @@
           "lib/net451/Microsoft.Extensions.WebEncoders.Core.dll": {}
         }
       },
+      "Microsoft.IdentityModel.Logging/1.0.0-rc1-211161024": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/net451/Microsoft.IdentityModel.Logging.dll": {}
+        },
+        "runtime": {
+          "lib/net451/Microsoft.IdentityModel.Logging.dll": {}
+        }
+      },
+      "Microsoft.IdentityModel.Protocols/2.0.0-rc1-211161024": {
+        "type": "package",
+        "dependencies": {
+          "System.IdentityModel.Tokens.Jwt": "5.0.0-rc1-211161024"
+        },
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Core",
+          "System.Net.Http"
+        ],
+        "compile": {
+          "lib/net451/Microsoft.IdentityModel.Protocols.dll": {}
+        },
+        "runtime": {
+          "lib/net451/Microsoft.IdentityModel.Protocols.dll": {}
+        }
+      },
       "Microsoft.Net.Http.Headers/1.0.0-rc1-final": {
         "type": "package",
         "frameworkAssemblies": [
@@ -1640,6 +1674,44 @@
         },
         "runtime": {
           "lib/net45/_._": {}
+        }
+      },
+      "System.IdentityModel.Tokens/5.0.0-rc1-211161024": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.IdentityModel.Logging": "1.0.0-rc1-211161024",
+          "Newtonsoft.Json": "6.0.6"
+        },
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Core",
+          "System.Xml"
+        ],
+        "compile": {
+          "lib/net451/System.IdentityModel.Tokens.dll": {}
+        },
+        "runtime": {
+          "lib/net451/System.IdentityModel.Tokens.dll": {}
+        }
+      },
+      "System.IdentityModel.Tokens.Jwt/5.0.0-rc1-211161024": {
+        "type": "package",
+        "dependencies": {
+          "System.IdentityModel.Tokens": "5.0.0-rc1-211161024"
+        },
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/net451/System.IdentityModel.Tokens.Jwt.dll": {}
+        },
+        "runtime": {
+          "lib/net451/System.IdentityModel.Tokens.Jwt.dll": {}
         }
       },
       "System.IO/4.0.0": {
@@ -3150,6 +3222,39 @@
           "lib/dotnet5.4/Microsoft.Extensions.WebEncoders.Core.dll": {}
         }
       },
+      "Microsoft.IdentityModel.Logging/1.0.0-rc1-211161024": {
+        "type": "package",
+        "dependencies": {
+          "System.Diagnostics.Tracing": "4.0.21-beta-23516",
+          "System.Globalization": "4.0.11-beta-23516",
+          "System.IO": "4.0.11-beta-23516",
+          "System.IO.FileSystem": "4.0.1-beta-23516"
+        },
+        "compile": {
+          "lib/dotnet5.4/Microsoft.IdentityModel.Logging.dll": {}
+        },
+        "runtime": {
+          "lib/dotnet5.4/Microsoft.IdentityModel.Logging.dll": {}
+        }
+      },
+      "Microsoft.IdentityModel.Protocols/2.0.0-rc1-211161024": {
+        "type": "package",
+        "dependencies": {
+          "System.Collections.Specialized": "4.0.1-beta-23516",
+          "System.Diagnostics.Contracts": "4.0.1-beta-23516",
+          "System.Globalization": "4.0.11-beta-23516",
+          "System.IdentityModel.Tokens.Jwt": "5.0.0-rc1-211161024",
+          "System.IO.FileSystem": "4.0.1-beta-23516",
+          "System.Net.Http": "4.0.1-beta-23516",
+          "System.Xml.ReaderWriter": "4.0.11-beta-23516"
+        },
+        "compile": {
+          "lib/dotnet5.4/Microsoft.IdentityModel.Protocols.dll": {}
+        },
+        "runtime": {
+          "lib/dotnet5.4/Microsoft.IdentityModel.Protocols.dll": {}
+        }
+      },
       "Microsoft.Net.Http.Headers/1.0.0-rc1-final": {
         "type": "package",
         "dependencies": {
@@ -3295,6 +3400,24 @@
         },
         "runtime": {
           "lib/dotnet/System.Collections.NonGeneric.dll": {}
+        }
+      },
+      "System.Collections.Specialized/4.0.1-beta-23516": {
+        "type": "package",
+        "dependencies": {
+          "System.Collections.NonGeneric": "4.0.0",
+          "System.Globalization": "4.0.10",
+          "System.Globalization.Extensions": "4.0.0",
+          "System.Resources.ResourceManager": "4.0.0",
+          "System.Runtime": "4.0.20",
+          "System.Runtime.Extensions": "4.0.10",
+          "System.Threading": "4.0.10"
+        },
+        "compile": {
+          "ref/dotnet5.1/System.Collections.Specialized.dll": {}
+        },
+        "runtime": {
+          "lib/dotnet5.4/System.Collections.Specialized.dll": {}
         }
       },
       "System.ComponentModel/4.0.1-beta-23516": {
@@ -3538,6 +3661,58 @@
         },
         "compile": {
           "ref/dotnet5.1/System.Globalization.Extensions.dll": {}
+        }
+      },
+      "System.IdentityModel.Tokens/5.0.0-rc1-211161024": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.IdentityModel.Logging": "1.0.0-rc1-211161024",
+          "Newtonsoft.Json": "6.0.6",
+          "System.Collections": "4.0.11-beta-23516",
+          "System.Diagnostics.Tools": "4.0.1-beta-23516",
+          "System.Globalization": "4.0.11-beta-23516",
+          "System.IO": "4.0.11-beta-23516",
+          "System.Runtime.Extensions": "4.0.11-beta-23516",
+          "System.Runtime.InteropServices": "4.0.21-beta-23516",
+          "System.Security.Claims": "4.0.1-beta-23516",
+          "System.Security.Cryptography.Algorithms": "4.0.0-beta-23516",
+          "System.Security.Cryptography.Cng": "4.0.0-beta-23516",
+          "System.Security.Cryptography.Csp": "4.0.0-beta-23516",
+          "System.Security.Cryptography.X509Certificates": "4.0.0-beta-23516",
+          "System.Security.Principal": "4.0.1-beta-23516",
+          "System.Text.RegularExpressions": "4.0.11-beta-23516",
+          "System.Threading": "4.0.11-beta-23516",
+          "System.Xml.ReaderWriter": "4.0.11-beta-23516"
+        },
+        "compile": {
+          "lib/dotnet5.4/System.IdentityModel.Tokens.dll": {}
+        },
+        "runtime": {
+          "lib/dotnet5.4/System.IdentityModel.Tokens.dll": {}
+        }
+      },
+      "System.IdentityModel.Tokens.Jwt/5.0.0-rc1-211161024": {
+        "type": "package",
+        "dependencies": {
+          "System.Collections": "4.0.11-beta-23516",
+          "System.Diagnostics.Tools": "4.0.1-beta-23516",
+          "System.Globalization": "4.0.11-beta-23516",
+          "System.IdentityModel.Tokens": "5.0.0-rc1-211161024",
+          "System.IO": "4.0.11-beta-23516",
+          "System.Runtime.Extensions": "4.0.11-beta-23516",
+          "System.Runtime.InteropServices": "4.0.21-beta-23516",
+          "System.Security.Claims": "4.0.1-beta-23516",
+          "System.Security.Cryptography.Algorithms": "4.0.0-beta-23516",
+          "System.Security.Cryptography.X509Certificates": "4.0.0-beta-23516",
+          "System.Security.Principal": "4.0.1-beta-23516",
+          "System.Text.RegularExpressions": "4.0.11-beta-23516",
+          "System.Threading": "4.0.11-beta-23516"
+        },
+        "compile": {
+          "lib/dotnet5.4/System.IdentityModel.Tokens.Jwt.dll": {}
+        },
+        "runtime": {
+          "lib/dotnet5.4/System.IdentityModel.Tokens.Jwt.dll": {}
         }
       },
       "System.IO/4.0.11-beta-23516": {
@@ -3939,6 +4114,49 @@
           "ref/dotnet5.1/System.Security.Cryptography.Algorithms.dll": {}
         }
       },
+      "System.Security.Cryptography.Cng/4.0.0-beta-23516": {
+        "type": "package",
+        "dependencies": {
+          "System.IO": "4.0.10",
+          "System.Resources.ResourceManager": "4.0.0",
+          "System.Runtime": "4.0.20",
+          "System.Runtime.Extensions": "4.0.0",
+          "System.Runtime.Handles": "4.0.0",
+          "System.Runtime.InteropServices": "4.0.20",
+          "System.Security.Cryptography.Algorithms": "4.0.0-beta-23516",
+          "System.Security.Cryptography.Primitives": "4.0.0-beta-23516",
+          "System.Text.Encoding": "4.0.0"
+        },
+        "compile": {
+          "ref/dotnet5.2/System.Security.Cryptography.Cng.dll": {}
+        },
+        "runtime": {
+          "lib/dotnet5.4/System.Security.Cryptography.Cng.dll": {}
+        }
+      },
+      "System.Security.Cryptography.Csp/4.0.0-beta-23516": {
+        "type": "package",
+        "dependencies": {
+          "System.IO": "4.0.10",
+          "System.Reflection": "4.0.0",
+          "System.Resources.ResourceManager": "4.0.0",
+          "System.Runtime": "4.0.20",
+          "System.Runtime.Extensions": "4.0.10",
+          "System.Runtime.Handles": "4.0.0",
+          "System.Runtime.InteropServices": "4.0.20",
+          "System.Security.Cryptography.Algorithms": "4.0.0-beta-23516",
+          "System.Security.Cryptography.Encoding": "4.0.0-beta-23516",
+          "System.Security.Cryptography.Primitives": "4.0.0-beta-23516",
+          "System.Text.Encoding": "4.0.10",
+          "System.Threading": "4.0.10"
+        },
+        "compile": {
+          "ref/dotnet5.1/System.Security.Cryptography.Csp.dll": {}
+        },
+        "runtime": {
+          "lib/DNXCore50/System.Security.Cryptography.Csp.dll": {}
+        }
+      },
       "System.Security.Cryptography.Encoding/4.0.0-beta-23516": {
         "type": "package",
         "dependencies": {
@@ -4143,7 +4361,7 @@
           "lib/DNXCore50/System.Threading.Timer.dll": {}
         }
       },
-      "System.Xml.ReaderWriter/4.0.10": {
+      "System.Xml.ReaderWriter/4.0.11-beta-23516": {
         "type": "package",
         "dependencies": {
           "System.Collections": "4.0.10",
@@ -4158,14 +4376,14 @@
           "System.Runtime.InteropServices": "4.0.20",
           "System.Text.Encoding": "4.0.10",
           "System.Text.Encoding.Extensions": "4.0.10",
-          "System.Text.RegularExpressions": "4.0.10",
+          "System.Text.RegularExpressions": "4.0.0",
           "System.Threading.Tasks": "4.0.10"
         },
         "compile": {
-          "ref/dotnet/System.Xml.ReaderWriter.dll": {}
+          "ref/dotnet5.4/System.Xml.ReaderWriter.dll": {}
         },
         "runtime": {
-          "lib/dotnet/System.Xml.ReaderWriter.dll": {}
+          "lib/dotnet5.4/System.Xml.ReaderWriter.dll": {}
         }
       },
       "System.Xml.XDocument/4.0.11-beta-23516": {
@@ -5733,6 +5951,40 @@
           "lib/net451/Microsoft.Extensions.WebEncoders.Core.dll": {}
         }
       },
+      "Microsoft.IdentityModel.Logging/1.0.0-rc1-211161024": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/net451/Microsoft.IdentityModel.Logging.dll": {}
+        },
+        "runtime": {
+          "lib/net451/Microsoft.IdentityModel.Logging.dll": {}
+        }
+      },
+      "Microsoft.IdentityModel.Protocols/2.0.0-rc1-211161024": {
+        "type": "package",
+        "dependencies": {
+          "System.IdentityModel.Tokens.Jwt": "5.0.0-rc1-211161024"
+        },
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Core",
+          "System.Net.Http"
+        ],
+        "compile": {
+          "lib/net451/Microsoft.IdentityModel.Protocols.dll": {}
+        },
+        "runtime": {
+          "lib/net451/Microsoft.IdentityModel.Protocols.dll": {}
+        }
+      },
       "Microsoft.Net.Http.Headers/1.0.0-rc1-final": {
         "type": "package",
         "frameworkAssemblies": [
@@ -5833,6 +6085,44 @@
         },
         "runtime": {
           "lib/net45/_._": {}
+        }
+      },
+      "System.IdentityModel.Tokens/5.0.0-rc1-211161024": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.IdentityModel.Logging": "1.0.0-rc1-211161024",
+          "Newtonsoft.Json": "6.0.6"
+        },
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Core",
+          "System.Xml"
+        ],
+        "compile": {
+          "lib/net451/System.IdentityModel.Tokens.dll": {}
+        },
+        "runtime": {
+          "lib/net451/System.IdentityModel.Tokens.dll": {}
+        }
+      },
+      "System.IdentityModel.Tokens.Jwt/5.0.0-rc1-211161024": {
+        "type": "package",
+        "dependencies": {
+          "System.IdentityModel.Tokens": "5.0.0-rc1-211161024"
+        },
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/net451/System.IdentityModel.Tokens.Jwt.dll": {}
+        },
+        "runtime": {
+          "lib/net451/System.IdentityModel.Tokens.Jwt.dll": {}
         }
       },
       "System.IO/4.0.0": {
@@ -7519,6 +7809,40 @@
           "lib/net451/Microsoft.Extensions.WebEncoders.Core.dll": {}
         }
       },
+      "Microsoft.IdentityModel.Logging/1.0.0-rc1-211161024": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/net451/Microsoft.IdentityModel.Logging.dll": {}
+        },
+        "runtime": {
+          "lib/net451/Microsoft.IdentityModel.Logging.dll": {}
+        }
+      },
+      "Microsoft.IdentityModel.Protocols/2.0.0-rc1-211161024": {
+        "type": "package",
+        "dependencies": {
+          "System.IdentityModel.Tokens.Jwt": "5.0.0-rc1-211161024"
+        },
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Core",
+          "System.Net.Http"
+        ],
+        "compile": {
+          "lib/net451/Microsoft.IdentityModel.Protocols.dll": {}
+        },
+        "runtime": {
+          "lib/net451/Microsoft.IdentityModel.Protocols.dll": {}
+        }
+      },
       "Microsoft.Net.Http.Headers/1.0.0-rc1-final": {
         "type": "package",
         "frameworkAssemblies": [
@@ -7619,6 +7943,44 @@
         },
         "runtime": {
           "lib/net45/_._": {}
+        }
+      },
+      "System.IdentityModel.Tokens/5.0.0-rc1-211161024": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.IdentityModel.Logging": "1.0.0-rc1-211161024",
+          "Newtonsoft.Json": "6.0.6"
+        },
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Core",
+          "System.Xml"
+        ],
+        "compile": {
+          "lib/net451/System.IdentityModel.Tokens.dll": {}
+        },
+        "runtime": {
+          "lib/net451/System.IdentityModel.Tokens.dll": {}
+        }
+      },
+      "System.IdentityModel.Tokens.Jwt/5.0.0-rc1-211161024": {
+        "type": "package",
+        "dependencies": {
+          "System.IdentityModel.Tokens": "5.0.0-rc1-211161024"
+        },
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/net451/System.IdentityModel.Tokens.Jwt.dll": {}
+        },
+        "runtime": {
+          "lib/net451/System.IdentityModel.Tokens.Jwt.dll": {}
         }
       },
       "System.IO/4.0.0": {
@@ -9132,6 +9494,39 @@
           "lib/dotnet5.4/Microsoft.Extensions.WebEncoders.Core.dll": {}
         }
       },
+      "Microsoft.IdentityModel.Logging/1.0.0-rc1-211161024": {
+        "type": "package",
+        "dependencies": {
+          "System.Diagnostics.Tracing": "4.0.21-beta-23516",
+          "System.Globalization": "4.0.11-beta-23516",
+          "System.IO": "4.0.11-beta-23516",
+          "System.IO.FileSystem": "4.0.1-beta-23516"
+        },
+        "compile": {
+          "lib/dotnet5.4/Microsoft.IdentityModel.Logging.dll": {}
+        },
+        "runtime": {
+          "lib/dotnet5.4/Microsoft.IdentityModel.Logging.dll": {}
+        }
+      },
+      "Microsoft.IdentityModel.Protocols/2.0.0-rc1-211161024": {
+        "type": "package",
+        "dependencies": {
+          "System.Collections.Specialized": "4.0.1-beta-23516",
+          "System.Diagnostics.Contracts": "4.0.1-beta-23516",
+          "System.Globalization": "4.0.11-beta-23516",
+          "System.IdentityModel.Tokens.Jwt": "5.0.0-rc1-211161024",
+          "System.IO.FileSystem": "4.0.1-beta-23516",
+          "System.Net.Http": "4.0.1-beta-23516",
+          "System.Xml.ReaderWriter": "4.0.11-beta-23516"
+        },
+        "compile": {
+          "lib/dotnet5.4/Microsoft.IdentityModel.Protocols.dll": {}
+        },
+        "runtime": {
+          "lib/dotnet5.4/Microsoft.IdentityModel.Protocols.dll": {}
+        }
+      },
       "Microsoft.Net.Http.Headers/1.0.0-rc1-final": {
         "type": "package",
         "dependencies": {
@@ -9620,6 +10015,24 @@
           "lib/dotnet/System.Collections.NonGeneric.dll": {}
         }
       },
+      "System.Collections.Specialized/4.0.1-beta-23516": {
+        "type": "package",
+        "dependencies": {
+          "System.Collections.NonGeneric": "4.0.0",
+          "System.Globalization": "4.0.10",
+          "System.Globalization.Extensions": "4.0.0",
+          "System.Resources.ResourceManager": "4.0.0",
+          "System.Runtime": "4.0.20",
+          "System.Runtime.Extensions": "4.0.10",
+          "System.Threading": "4.0.10"
+        },
+        "compile": {
+          "ref/dotnet5.1/System.Collections.Specialized.dll": {}
+        },
+        "runtime": {
+          "lib/dotnet5.4/System.Collections.Specialized.dll": {}
+        }
+      },
       "System.ComponentModel/4.0.1-beta-23516": {
         "type": "package",
         "dependencies": {
@@ -9889,6 +10302,58 @@
         },
         "compile": {
           "ref/dotnet5.1/System.Globalization.Extensions.dll": {}
+        }
+      },
+      "System.IdentityModel.Tokens/5.0.0-rc1-211161024": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.IdentityModel.Logging": "1.0.0-rc1-211161024",
+          "Newtonsoft.Json": "6.0.6",
+          "System.Collections": "4.0.11-beta-23516",
+          "System.Diagnostics.Tools": "4.0.1-beta-23516",
+          "System.Globalization": "4.0.11-beta-23516",
+          "System.IO": "4.0.11-beta-23516",
+          "System.Runtime.Extensions": "4.0.11-beta-23516",
+          "System.Runtime.InteropServices": "4.0.21-beta-23516",
+          "System.Security.Claims": "4.0.1-beta-23516",
+          "System.Security.Cryptography.Algorithms": "4.0.0-beta-23516",
+          "System.Security.Cryptography.Cng": "4.0.0-beta-23516",
+          "System.Security.Cryptography.Csp": "4.0.0-beta-23516",
+          "System.Security.Cryptography.X509Certificates": "4.0.0-beta-23516",
+          "System.Security.Principal": "4.0.1-beta-23516",
+          "System.Text.RegularExpressions": "4.0.11-beta-23516",
+          "System.Threading": "4.0.11-beta-23516",
+          "System.Xml.ReaderWriter": "4.0.11-beta-23516"
+        },
+        "compile": {
+          "lib/dotnet5.4/System.IdentityModel.Tokens.dll": {}
+        },
+        "runtime": {
+          "lib/dotnet5.4/System.IdentityModel.Tokens.dll": {}
+        }
+      },
+      "System.IdentityModel.Tokens.Jwt/5.0.0-rc1-211161024": {
+        "type": "package",
+        "dependencies": {
+          "System.Collections": "4.0.11-beta-23516",
+          "System.Diagnostics.Tools": "4.0.1-beta-23516",
+          "System.Globalization": "4.0.11-beta-23516",
+          "System.IdentityModel.Tokens": "5.0.0-rc1-211161024",
+          "System.IO": "4.0.11-beta-23516",
+          "System.Runtime.Extensions": "4.0.11-beta-23516",
+          "System.Runtime.InteropServices": "4.0.21-beta-23516",
+          "System.Security.Claims": "4.0.1-beta-23516",
+          "System.Security.Cryptography.Algorithms": "4.0.0-beta-23516",
+          "System.Security.Cryptography.X509Certificates": "4.0.0-beta-23516",
+          "System.Security.Principal": "4.0.1-beta-23516",
+          "System.Text.RegularExpressions": "4.0.11-beta-23516",
+          "System.Threading": "4.0.11-beta-23516"
+        },
+        "compile": {
+          "lib/dotnet5.4/System.IdentityModel.Tokens.Jwt.dll": {}
+        },
+        "runtime": {
+          "lib/dotnet5.4/System.IdentityModel.Tokens.Jwt.dll": {}
         }
       },
       "System.IO/4.0.11-beta-23516": {
@@ -10669,7 +11134,7 @@
           "lib/DNXCore50/System.Threading.Timer.dll": {}
         }
       },
-      "System.Xml.ReaderWriter/4.0.10": {
+      "System.Xml.ReaderWriter/4.0.11-beta-23516": {
         "type": "package",
         "dependencies": {
           "System.Collections": "4.0.10",
@@ -10684,14 +11149,14 @@
           "System.Runtime.InteropServices": "4.0.20",
           "System.Text.Encoding": "4.0.10",
           "System.Text.Encoding.Extensions": "4.0.10",
-          "System.Text.RegularExpressions": "4.0.10",
+          "System.Text.RegularExpressions": "4.0.0",
           "System.Threading.Tasks": "4.0.10"
         },
         "compile": {
-          "ref/dotnet/System.Xml.ReaderWriter.dll": {}
+          "ref/dotnet5.4/System.Xml.ReaderWriter.dll": {}
         },
         "runtime": {
-          "lib/dotnet/System.Xml.ReaderWriter.dll": {}
+          "lib/dotnet5.4/System.Xml.ReaderWriter.dll": {}
         }
       },
       "System.Xml.XDocument/4.0.11-beta-23516": {
@@ -12086,6 +12551,39 @@
           "lib/dotnet5.4/Microsoft.Extensions.WebEncoders.Core.dll": {}
         }
       },
+      "Microsoft.IdentityModel.Logging/1.0.0-rc1-211161024": {
+        "type": "package",
+        "dependencies": {
+          "System.Diagnostics.Tracing": "4.0.21-beta-23516",
+          "System.Globalization": "4.0.11-beta-23516",
+          "System.IO": "4.0.11-beta-23516",
+          "System.IO.FileSystem": "4.0.1-beta-23516"
+        },
+        "compile": {
+          "lib/dotnet5.4/Microsoft.IdentityModel.Logging.dll": {}
+        },
+        "runtime": {
+          "lib/dotnet5.4/Microsoft.IdentityModel.Logging.dll": {}
+        }
+      },
+      "Microsoft.IdentityModel.Protocols/2.0.0-rc1-211161024": {
+        "type": "package",
+        "dependencies": {
+          "System.Collections.Specialized": "4.0.1-beta-23516",
+          "System.Diagnostics.Contracts": "4.0.1-beta-23516",
+          "System.Globalization": "4.0.11-beta-23516",
+          "System.IdentityModel.Tokens.Jwt": "5.0.0-rc1-211161024",
+          "System.IO.FileSystem": "4.0.1-beta-23516",
+          "System.Net.Http": "4.0.1-beta-23516",
+          "System.Xml.ReaderWriter": "4.0.11-beta-23516"
+        },
+        "compile": {
+          "lib/dotnet5.4/Microsoft.IdentityModel.Protocols.dll": {}
+        },
+        "runtime": {
+          "lib/dotnet5.4/Microsoft.IdentityModel.Protocols.dll": {}
+        }
+      },
       "Microsoft.Net.Http.Headers/1.0.0-rc1-final": {
         "type": "package",
         "dependencies": {
@@ -12574,6 +13072,24 @@
           "lib/dotnet/System.Collections.NonGeneric.dll": {}
         }
       },
+      "System.Collections.Specialized/4.0.1-beta-23516": {
+        "type": "package",
+        "dependencies": {
+          "System.Collections.NonGeneric": "4.0.0",
+          "System.Globalization": "4.0.10",
+          "System.Globalization.Extensions": "4.0.0",
+          "System.Resources.ResourceManager": "4.0.0",
+          "System.Runtime": "4.0.20",
+          "System.Runtime.Extensions": "4.0.10",
+          "System.Threading": "4.0.10"
+        },
+        "compile": {
+          "ref/dotnet5.1/System.Collections.Specialized.dll": {}
+        },
+        "runtime": {
+          "lib/dotnet5.4/System.Collections.Specialized.dll": {}
+        }
+      },
       "System.ComponentModel/4.0.1-beta-23516": {
         "type": "package",
         "dependencies": {
@@ -12843,6 +13359,58 @@
         },
         "compile": {
           "ref/dotnet5.1/System.Globalization.Extensions.dll": {}
+        }
+      },
+      "System.IdentityModel.Tokens/5.0.0-rc1-211161024": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.IdentityModel.Logging": "1.0.0-rc1-211161024",
+          "Newtonsoft.Json": "6.0.6",
+          "System.Collections": "4.0.11-beta-23516",
+          "System.Diagnostics.Tools": "4.0.1-beta-23516",
+          "System.Globalization": "4.0.11-beta-23516",
+          "System.IO": "4.0.11-beta-23516",
+          "System.Runtime.Extensions": "4.0.11-beta-23516",
+          "System.Runtime.InteropServices": "4.0.21-beta-23516",
+          "System.Security.Claims": "4.0.1-beta-23516",
+          "System.Security.Cryptography.Algorithms": "4.0.0-beta-23516",
+          "System.Security.Cryptography.Cng": "4.0.0-beta-23516",
+          "System.Security.Cryptography.Csp": "4.0.0-beta-23516",
+          "System.Security.Cryptography.X509Certificates": "4.0.0-beta-23516",
+          "System.Security.Principal": "4.0.1-beta-23516",
+          "System.Text.RegularExpressions": "4.0.11-beta-23516",
+          "System.Threading": "4.0.11-beta-23516",
+          "System.Xml.ReaderWriter": "4.0.11-beta-23516"
+        },
+        "compile": {
+          "lib/dotnet5.4/System.IdentityModel.Tokens.dll": {}
+        },
+        "runtime": {
+          "lib/dotnet5.4/System.IdentityModel.Tokens.dll": {}
+        }
+      },
+      "System.IdentityModel.Tokens.Jwt/5.0.0-rc1-211161024": {
+        "type": "package",
+        "dependencies": {
+          "System.Collections": "4.0.11-beta-23516",
+          "System.Diagnostics.Tools": "4.0.1-beta-23516",
+          "System.Globalization": "4.0.11-beta-23516",
+          "System.IdentityModel.Tokens": "5.0.0-rc1-211161024",
+          "System.IO": "4.0.11-beta-23516",
+          "System.Runtime.Extensions": "4.0.11-beta-23516",
+          "System.Runtime.InteropServices": "4.0.21-beta-23516",
+          "System.Security.Claims": "4.0.1-beta-23516",
+          "System.Security.Cryptography.Algorithms": "4.0.0-beta-23516",
+          "System.Security.Cryptography.X509Certificates": "4.0.0-beta-23516",
+          "System.Security.Principal": "4.0.1-beta-23516",
+          "System.Text.RegularExpressions": "4.0.11-beta-23516",
+          "System.Threading": "4.0.11-beta-23516"
+        },
+        "compile": {
+          "lib/dotnet5.4/System.IdentityModel.Tokens.Jwt.dll": {}
+        },
+        "runtime": {
+          "lib/dotnet5.4/System.IdentityModel.Tokens.Jwt.dll": {}
         }
       },
       "System.IO/4.0.11-beta-23516": {
@@ -13623,7 +14191,7 @@
           "lib/DNXCore50/System.Threading.Timer.dll": {}
         }
       },
-      "System.Xml.ReaderWriter/4.0.10": {
+      "System.Xml.ReaderWriter/4.0.11-beta-23516": {
         "type": "package",
         "dependencies": {
           "System.Collections": "4.0.10",
@@ -13638,14 +14206,14 @@
           "System.Runtime.InteropServices": "4.0.20",
           "System.Text.Encoding": "4.0.10",
           "System.Text.Encoding.Extensions": "4.0.10",
-          "System.Text.RegularExpressions": "4.0.10",
+          "System.Text.RegularExpressions": "4.0.0",
           "System.Threading.Tasks": "4.0.10"
         },
         "compile": {
-          "ref/dotnet/System.Xml.ReaderWriter.dll": {}
+          "ref/dotnet5.4/System.Xml.ReaderWriter.dll": {}
         },
         "runtime": {
-          "lib/dotnet/System.Xml.ReaderWriter.dll": {}
+          "lib/dotnet5.4/System.Xml.ReaderWriter.dll": {}
         }
       },
       "System.Xml.XDocument/4.0.11-beta-23516": {
@@ -14918,6 +15486,34 @@
         "Microsoft.Extensions.WebEncoders.Core.nuspec"
       ]
     },
+    "Microsoft.IdentityModel.Logging/1.0.0-rc1-211161024": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "creXwpCysjVpRx+IsZSf8mxCT9lZ/VY1T6wR6zFFulPXV1UZysVURmLd/IgJg/p9pAtcrU5yIbRC9Az3j73+nA==",
+      "files": [
+        "lib/dotnet5.4/Microsoft.IdentityModel.Logging.dll",
+        "lib/dotnet5.4/Microsoft.IdentityModel.Logging.xml",
+        "lib/net451/Microsoft.IdentityModel.Logging.dll",
+        "lib/net451/Microsoft.IdentityModel.Logging.xml",
+        "Microsoft.IdentityModel.Logging.1.0.0-rc1-211161024.nupkg",
+        "Microsoft.IdentityModel.Logging.1.0.0-rc1-211161024.nupkg.sha512",
+        "Microsoft.IdentityModel.Logging.nuspec"
+      ]
+    },
+    "Microsoft.IdentityModel.Protocols/2.0.0-rc1-211161024": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "1/I4nkZCKjNg9jIASv2sNIi8RvdsYLi/efbylZEw+zvtBgNfNEvdCeAsIVyX3A4pR0yQwtIdz+kTYRTs2diSEQ==",
+      "files": [
+        "lib/dotnet5.4/Microsoft.IdentityModel.Protocols.dll",
+        "lib/dotnet5.4/Microsoft.IdentityModel.Protocols.xml",
+        "lib/net451/Microsoft.IdentityModel.Protocols.dll",
+        "lib/net451/Microsoft.IdentityModel.Protocols.xml",
+        "Microsoft.IdentityModel.Protocols.2.0.0-rc1-211161024.nupkg",
+        "Microsoft.IdentityModel.Protocols.2.0.0-rc1-211161024.nupkg.sha512",
+        "Microsoft.IdentityModel.Protocols.nuspec"
+      ]
+    },
     "Microsoft.Net.Http.Headers/1.0.0-rc1-final": {
       "type": "package",
       "serviceable": true,
@@ -15548,6 +16144,38 @@
         "System.Collections.NonGeneric.4.0.0.nupkg",
         "System.Collections.NonGeneric.4.0.0.nupkg.sha512",
         "System.Collections.NonGeneric.nuspec"
+      ]
+    },
+    "System.Collections.Specialized/4.0.1-beta-23516": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "h/PM3mqxwZzhClFW7vxdgIoT/4TBqBqHNzIphgpvqisGhe0jpE5XiBVqhZwx2QMkZO7+LJpUmIv8W3gMkPr1fg==",
+      "files": [
+        "lib/dotnet5.4/System.Collections.Specialized.dll",
+        "lib/MonoAndroid10/_._",
+        "lib/MonoTouch10/_._",
+        "lib/net46/System.Collections.Specialized.dll",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "ref/dotnet5.1/de/System.Collections.Specialized.xml",
+        "ref/dotnet5.1/es/System.Collections.Specialized.xml",
+        "ref/dotnet5.1/fr/System.Collections.Specialized.xml",
+        "ref/dotnet5.1/it/System.Collections.Specialized.xml",
+        "ref/dotnet5.1/ja/System.Collections.Specialized.xml",
+        "ref/dotnet5.1/ko/System.Collections.Specialized.xml",
+        "ref/dotnet5.1/ru/System.Collections.Specialized.xml",
+        "ref/dotnet5.1/System.Collections.Specialized.dll",
+        "ref/dotnet5.1/System.Collections.Specialized.xml",
+        "ref/dotnet5.1/zh-hans/System.Collections.Specialized.xml",
+        "ref/dotnet5.1/zh-hant/System.Collections.Specialized.xml",
+        "ref/MonoAndroid10/_._",
+        "ref/MonoTouch10/_._",
+        "ref/net46/System.Collections.Specialized.dll",
+        "ref/xamarinios10/_._",
+        "ref/xamarinmac20/_._",
+        "System.Collections.Specialized.4.0.1-beta-23516.nupkg",
+        "System.Collections.Specialized.4.0.1-beta-23516.nupkg.sha512",
+        "System.Collections.Specialized.nuspec"
       ]
     },
     "System.ComponentModel/4.0.1-beta-23516": {
@@ -16467,6 +17095,34 @@
         "System.Globalization.Extensions.4.0.1-beta-23516.nupkg",
         "System.Globalization.Extensions.4.0.1-beta-23516.nupkg.sha512",
         "System.Globalization.Extensions.nuspec"
+      ]
+    },
+    "System.IdentityModel.Tokens/5.0.0-rc1-211161024": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "UbFu6NIPI8pDL/lZlajUQ06OQNJvkpUWYBDIZr+HaqiXseE0Jja1kXTFg2gxKpjuruRinR7e7+/qnAAE3/BPcw==",
+      "files": [
+        "lib/dotnet5.4/System.IdentityModel.Tokens.dll",
+        "lib/dotnet5.4/System.IdentityModel.Tokens.xml",
+        "lib/net451/System.IdentityModel.Tokens.dll",
+        "lib/net451/System.IdentityModel.Tokens.xml",
+        "System.IdentityModel.Tokens.5.0.0-rc1-211161024.nupkg",
+        "System.IdentityModel.Tokens.5.0.0-rc1-211161024.nupkg.sha512",
+        "System.IdentityModel.Tokens.nuspec"
+      ]
+    },
+    "System.IdentityModel.Tokens.Jwt/5.0.0-rc1-211161024": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "A/mqsC0pFbFnsZ6OR17PPkNz4OEu0Xt8wK83FNDLvsoWMhvKS2DDFnn9dqzUxKDLEIZUXwWWCJQJritmvXsf1g==",
+      "files": [
+        "lib/dotnet5.4/System.IdentityModel.Tokens.Jwt.dll",
+        "lib/dotnet5.4/System.IdentityModel.Tokens.Jwt.xml",
+        "lib/net451/System.IdentityModel.Tokens.Jwt.dll",
+        "lib/net451/System.IdentityModel.Tokens.Jwt.xml",
+        "System.IdentityModel.Tokens.Jwt.5.0.0-rc1-211161024.nupkg",
+        "System.IdentityModel.Tokens.Jwt.5.0.0-rc1-211161024.nupkg.sha512",
+        "System.IdentityModel.Tokens.Jwt.nuspec"
       ]
     },
     "System.IO/4.0.0": {
@@ -19017,35 +19673,64 @@
         "System.Threading.Timer.nuspec"
       ]
     },
-    "System.Xml.ReaderWriter/4.0.10": {
+    "System.Xml.ReaderWriter/4.0.11-beta-23516": {
       "type": "package",
       "serviceable": true,
-      "sha512": "VdmWWMH7otrYV7D+cviUo7XjX0jzDnD/lTGSZTlZqfIQ5PhXk85j+6P0TK9od3PnOd5ZIM+pOk01G/J+3nh9/w==",
+      "sha512": "E3/KJQWqUUrkUsorS42EwoGxLJQ3XMMYNXFlAW4bWT1kOeiGZHj1CqYk1sQuvxPVasZdqjcS/AAbPfYS01Y9Ag==",
       "files": [
-        "lib/dotnet/System.Xml.ReaderWriter.dll",
+        "lib/dotnet5.4/System.Xml.ReaderWriter.dll",
         "lib/MonoAndroid10/_._",
         "lib/MonoTouch10/_._",
-        "lib/net46/_._",
+        "lib/net45/_._",
+        "lib/netcore50/System.Xml.ReaderWriter.dll",
+        "lib/win8/_._",
+        "lib/wp80/_._",
+        "lib/wpa81/_._",
         "lib/xamarinios10/_._",
         "lib/xamarinmac20/_._",
-        "ref/dotnet/de/System.Xml.ReaderWriter.xml",
-        "ref/dotnet/es/System.Xml.ReaderWriter.xml",
-        "ref/dotnet/fr/System.Xml.ReaderWriter.xml",
-        "ref/dotnet/it/System.Xml.ReaderWriter.xml",
-        "ref/dotnet/ja/System.Xml.ReaderWriter.xml",
-        "ref/dotnet/ko/System.Xml.ReaderWriter.xml",
-        "ref/dotnet/ru/System.Xml.ReaderWriter.xml",
-        "ref/dotnet/System.Xml.ReaderWriter.dll",
-        "ref/dotnet/System.Xml.ReaderWriter.xml",
-        "ref/dotnet/zh-hans/System.Xml.ReaderWriter.xml",
-        "ref/dotnet/zh-hant/System.Xml.ReaderWriter.xml",
+        "ref/dotnet5.1/de/System.Xml.ReaderWriter.xml",
+        "ref/dotnet5.1/es/System.Xml.ReaderWriter.xml",
+        "ref/dotnet5.1/fr/System.Xml.ReaderWriter.xml",
+        "ref/dotnet5.1/it/System.Xml.ReaderWriter.xml",
+        "ref/dotnet5.1/ja/System.Xml.ReaderWriter.xml",
+        "ref/dotnet5.1/ko/System.Xml.ReaderWriter.xml",
+        "ref/dotnet5.1/ru/System.Xml.ReaderWriter.xml",
+        "ref/dotnet5.1/System.Xml.ReaderWriter.dll",
+        "ref/dotnet5.1/System.Xml.ReaderWriter.xml",
+        "ref/dotnet5.1/zh-hans/System.Xml.ReaderWriter.xml",
+        "ref/dotnet5.1/zh-hant/System.Xml.ReaderWriter.xml",
+        "ref/dotnet5.4/de/System.Xml.ReaderWriter.xml",
+        "ref/dotnet5.4/es/System.Xml.ReaderWriter.xml",
+        "ref/dotnet5.4/fr/System.Xml.ReaderWriter.xml",
+        "ref/dotnet5.4/it/System.Xml.ReaderWriter.xml",
+        "ref/dotnet5.4/ja/System.Xml.ReaderWriter.xml",
+        "ref/dotnet5.4/ko/System.Xml.ReaderWriter.xml",
+        "ref/dotnet5.4/ru/System.Xml.ReaderWriter.xml",
+        "ref/dotnet5.4/System.Xml.ReaderWriter.dll",
+        "ref/dotnet5.4/System.Xml.ReaderWriter.xml",
+        "ref/dotnet5.4/zh-hans/System.Xml.ReaderWriter.xml",
+        "ref/dotnet5.4/zh-hant/System.Xml.ReaderWriter.xml",
         "ref/MonoAndroid10/_._",
         "ref/MonoTouch10/_._",
-        "ref/net46/_._",
+        "ref/net45/_._",
+        "ref/netcore50/de/System.Xml.ReaderWriter.xml",
+        "ref/netcore50/es/System.Xml.ReaderWriter.xml",
+        "ref/netcore50/fr/System.Xml.ReaderWriter.xml",
+        "ref/netcore50/it/System.Xml.ReaderWriter.xml",
+        "ref/netcore50/ja/System.Xml.ReaderWriter.xml",
+        "ref/netcore50/ko/System.Xml.ReaderWriter.xml",
+        "ref/netcore50/ru/System.Xml.ReaderWriter.xml",
+        "ref/netcore50/System.Xml.ReaderWriter.dll",
+        "ref/netcore50/System.Xml.ReaderWriter.xml",
+        "ref/netcore50/zh-hans/System.Xml.ReaderWriter.xml",
+        "ref/netcore50/zh-hant/System.Xml.ReaderWriter.xml",
+        "ref/win8/_._",
+        "ref/wp80/_._",
+        "ref/wpa81/_._",
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
-        "System.Xml.ReaderWriter.4.0.10.nupkg",
-        "System.Xml.ReaderWriter.4.0.10.nupkg.sha512",
+        "System.Xml.ReaderWriter.4.0.11-beta-23516.nupkg",
+        "System.Xml.ReaderWriter.4.0.11-beta-23516.nupkg.sha512",
         "System.Xml.ReaderWriter.nuspec"
       ]
     },
@@ -19122,9 +19807,12 @@
       "Microsoft.Extensions.Configuration >= 1.0.0-rc1-final",
       "EntityFramework.Commands >= 7.0.0-rc1-final",
       "Microsoft.AspNet.Identity.EntityFramework >= 3.0.0-rc1-final",
-      "Microsoft.AspNet.Tooling.Razor >= 1.0.0-rc1-final"
+      "Microsoft.AspNet.Tooling.Razor >= 1.0.0-rc1-final",
+      "Microsoft.IdentityModel.Protocols >= 2.0.0-rc1-211161024"
     ],
-    "DNX,Version=v4.5.1": [],
+    "DNX,Version=v4.5.1": [
+      "fx/System.configuration >= 4.0.0"
+    ],
     "DNXCore,Version=v5.0": []
   }
 }

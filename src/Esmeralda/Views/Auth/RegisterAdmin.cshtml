@@ -1,48 +1,55 @@
 ﻿@model Esmeralda.ViewModels.RegisterAdminViewModel
+@Html.Partial("_NavBarFull")
 <div class="row">
-    <div class="col-md-4 col-md-offset-4 col-xs-8 col-xs-offset-2">
+    <div class="col s12 m10 l6 offset-m1 offset-l3">
         <form asp-controller="Auth" asp-action="RegisterAdmin" method="post">
-            <h3>Registro</h3>
-            <div asp-validation-summary="ValidationSummary.All" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Email"></label>
-                <input asp-for="Email" class="form-control" placeholder="nombre@example.com"/>
-                <span asp-validation-for="Email" class="text-danger"></span>
+            <h3 class="text-primary">Registro</h3>
+            <div asp-validation-summary="ValidationSummary.All" class="red-text"></div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <label asp-for="Email"></label>
+                    <input asp-for="Email" />
+                    <span asp-validation-for="Email" class="red-text"></span>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="Password"></label>
-                <input type="password" asp-for="Password" class="form-control" />
-                <span asp-validation-for="Password" class="text-danger"></span>
+            <div class="row">
+                <div class="input-field col s12">
+                    <label asp-for="Password"></label>
+                    <input type="password" asp-for="Password" placeholder="Al menos 6 caracteres" />
+                    <span asp-validation-for="Password" class="red-text"></span>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="ConfirmPassword"></label>
-                <input type="password" asp-for="ConfirmPassword" class="form-control" />
-                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+            <div class="row">
+                <div class="input-field col s12">
+                    <label asp-for="ConfirmPassword"></label>
+                    <input type="password" asp-for="ConfirmPassword" />
+                    <span asp-validation-for="ConfirmPassword" class="red-text"></span>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="UserName"></label>
-                <input asp-for="UserName" class="form-control" />
-                <span asp-validation-for="UserName" class="text-danger"></span>
+            <div class="row">
+                <div class="input-field col s12">
+                    <label asp-for="UserName"></label>
+                    <input asp-for="UserName" />
+                    <span asp-validation-for="UserName" class="red-text"></span>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="Address"></label>
-                <input asp-for="Address" class="form-control" placeholder="ejemplo: colonia, calle, numero"/>
-                <span asp-validation-for="Address" class="text-danger"></span>
+            <div class="row">
+                <div class="input-field col s12">
+                    <label asp-for="Address"></label>
+                    <input asp-for="Address" placeholder="ejemplo: colonia, calle, numero" />
+                    <span asp-validation-for="Address" class="red-text"></span>
+                </div>
             </div>
-            <hr>
             <div>
-                <button class="btn btn-primary btn-block" type="submit"><i class="fa fa-edit fa-fw fa-x2"></i>Registrarme</button>
-            </div>
-            <hr>
-            <div>
-                <p class="text-center">
-                    Registrandote en la app gofood
-                    Estas Aceptando los <a href="terms&conditions.html">
-                        terminos y condiciones
-                    </a>
-                </p>
+                <button class="btn btn-primary" type="submit">Registrarme</button>
             </div>
         </form>
+        <div>
+            <p>
+                Registrandote en la app gofood
+                estas aceptando los <a asp-action="TermsConditions" asp-controller="Auth">Terminos y condiciones</a>
+            </p>
+        </div>
     </div>
 </div>
 @section Scripts {

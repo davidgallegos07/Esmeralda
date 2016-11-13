@@ -55,7 +55,7 @@ namespace Esmeralda.ViewModels
             };
 
         }
-
+       
         public List<SelectListItem> AllMonths { get; private set; }
         public List<SelectListItem> AllYears { get; private set; }
         public int Id { get; set; }
@@ -73,6 +73,7 @@ namespace Esmeralda.ViewModels
 
         [Display(Name = "Confirmación de contraseña")]
         [Compare("Password", ErrorMessage = "La contraseña no coincide")]
+        [Required(ErrorMessage = "La contraseña es requerida")]
         [DataType(DataType.Password)]
         public string ConfirmPassword { get; set; }
 

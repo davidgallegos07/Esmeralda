@@ -1,72 +1,83 @@
 ﻿@model Esmeralda.ViewModels.RegisterUserViewModel
+@Html.Partial("_NavBarFull")
 <div class="row">
-    <div class="col-lg-12">
-        <div class="col-md-4 col-md-offset-4 col-xs-8 col-xs-offset-2">
-            <form asp-controller="Auth" asp-action="RegisterUser" method="post">
-                <h3 class="text-primary">Registro</h3>
-                @ViewBag.Confirmation
-                <div asp-validation-summary="ValidationSummary.ModelOnly" class="text-danger"></div>
-                <span class='payment-errors'></span>
-                <div class="form-group">
-                    <label asp-for="Email" class="control-label"></label>
-                        <input asp-for="Email" class="form-control" placeholder="nombre@ejemplo.com" />
-                        <span asp-validation-for="Email" class="text-danger"></span>
+    <div class="col s12 m10 l6 offset-m1 offset-l3">
+        <form asp-controller="Auth" asp-action="RegisterUser" method="post">
+            <h3 class="text-primary">Registro</h3>
+            @ViewBag.Confirmation
+            <div asp-validation-summary="ValidationSummary.ModelOnly" class="red-text"></div>
+            <span class='payment-errors'></span>
+            <div class="row">
+                <div class="input-field col s12">
+                    <label asp-for="Email"></label>
+                    <input asp-for="Email" />
+                    <span asp-validation-for="Email" class="red-text"></span>
                 </div>
-                <div class="form-group">
-                    <label asp-for="Password" class="control-label"></label>
-                        <input type="password" asp-for="Password" class="form-control" placeholder="Al menos 6 caracteres"/>
-                        <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <label asp-for="Password"></label>
+                    <input type="password" asp-for="Password" placeholder="Al menos 6 caracteres" />
+                    <span asp-validation-for="Password" class="red-text"></span>
                 </div>
-                <div class="form-group">
-                    <label asp-for="ConfirmPassword" class="control-label"></label>
-                        <input type="password" asp-for="ConfirmPassword" class="form-control" />
-                        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <label asp-for="ConfirmPassword"></label>
+                    <input type="password" asp-for="ConfirmPassword" />
+                    <span asp-validation-for="ConfirmPassword" class="red-text"></span>
                 </div>
-                <div class="form-group">
-                    <label asp-for="UserName" class="control-label"></label>
-                        <input asp-for="UserName" class="form-control" />
-                        <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <label asp-for="UserName"></label>
+                    <input asp-for="UserName" />
+                    <span asp-validation-for="UserName" class="red-text"></span>
                 </div>
-                <div class="form-group">
-                    <label asp-for="LastName" class="control-label"></label>
-                    <input asp-for="LastName" class="form-control" />
-                    <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <label asp-for="LastName"></label>
+                    <input asp-for="LastName" />
+                    <span asp-validation-for="LastName" class="red-text"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <label asp-for="CardNumber"></label>
+                    <input asp-for="CardNumber" />
+                    <span asp-validation-for="CardNumber" class="red-text"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s6">
+                    <label asp-for="CardExpirationYear"></label>
+                    <select class="browser-default" asp-for="CardExpirationYear" asp-items="ViewBag.AllYears"></select>
+                    <span asp-validation-for="CardExpirationYear" class="red-text"></span>
+                </div>
+                <div class="col s6">  
+                    <label asp-for="CardExpirationMonth"></label>
+                    <select class="browser-default" asp-for="CardExpirationMonth" asp-items="ViewBag.AllMonths"></select>
+                    <span asp-validation-for="CardExpirationMonth" class="red-text"></span>
                 </div>
 
-                <div class="form-group">
-                    <label asp-for="CardNumber" class="control-label"></label>
-                    <input asp-for="CardNumber" class="form-control"/>
-                    <span asp-validation-for="CardNumber" class="text-danger"></span>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <label asp-for="CVC"></label>
+                    <input asp-for="CVC" placeholder="123" />
+                    <span asp-validation-for="CVC" class="red-text"></span>
                 </div>
-                <div class="form-group">
-                    <label asp-for="CardExpirationMonth" class="control-label"></label>
-                    <select asp-for="CardExpirationMonth" asp-items="ViewBag.AllMonths" class="form-control"></select>
-                    <span asp-validation-for="CardExpirationMonth" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="CardExpirationYear" class="control-label"></label>
-                    <select asp-for="CardExpirationYear" asp-items="ViewBag.AllYears" class="form-control"></select>
-                    <span asp-validation-for="CardExpirationYear" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="CVC" class="control-label"></label>
-                    <input asp-for="CVC" class="form-control" placeholder="123" />
-                    <span asp-validation-for="CVC" class="text-danger"></span>
-                </div>
-                <hr>
-                <div>
-                    <button class="btn btn-primary btn-block" type="submit"><i class="fa fa-edit fa-fw fa-x2"></i>Registrarme</button>
-                </div>
-                <hr>
-                <div>
-                    <p class="text-center">
-                        Registrandote en la app gofood
-                        Estas Aceptando los <a href="terms&conditions.html">
-                            terminos y condiciones
-                        </a>
-                    </p>
-                </div>
-            </form>
+            </div>
+            <div class="s12">
+                <button class="btn btn-primary btn-block" type="submit">Registrarme</button>
+            </div>
+        </form>
+        <div>
+            <p>
+                Registrandote en la app gofood
+                estas aceptando los <a asp-action="TermsConditions" asp-controller="Auth">Terminos y condiciones</a>
+            </p>
         </div>
     </div>
 </div>

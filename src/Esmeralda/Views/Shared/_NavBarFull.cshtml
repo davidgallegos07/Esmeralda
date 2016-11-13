@@ -1,0 +1,15 @@
+﻿<nav>
+    <div class="nav-wrapper">
+        <a class="brand-logo" asp-controller="App" asp-action="Index">
+            <img src="~/img/logos/gf-logo-w-bar.png" />
+        </a>
+        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="fa fa-bars fa-fw"></i></a>
+        <ul class="right hide-on-med-and-down">
+            <li><a asp-controller="Auth" asp-action="Login"><i class="fa fa-user fa-fw"></i></a></li>
+        </ul>
+        <ul class="side-nav" id="mobile-demo">
+            <li><p>Bienvenido</p></li>
+            <li><a asp-controller="Auth" asp-action="Login"><i class="fa fa-user fa-fw"></i>Login</a></li>
+        </ul>
+    </div>
+</nav>

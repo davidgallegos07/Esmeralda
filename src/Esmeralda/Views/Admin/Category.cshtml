@@ -3,80 +3,37 @@
 @{
     ViewBag.Title = "Categorias";
 }
-
-<div id="wrapper">
-    <nav class="navbar-default navbar-static-side" role="navigation">
-        @*<div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <div>
-                    <a class="navbar-brand" asp-controller="App" asp-action="Index"><img class="brand-logo" src="~/img/food.png" alt="Gofood" /></a>
-                </div>
-            </div>*@
-        <div class="sidebar-collapse">
-            <ul class="nav" id="side-menu">
-                <li>
-                    <div class="user-info-wrapper">
-                        <div class="user-info-profile-image">
-                            <!-- <img src="img/profile-1.jpg" alt=""  width="65" height="65"> -->
-                            <i class="fa fa-user fa-4x "></i>
-                        </div>
-                        <div class="user-info">
-                            <div class="user-welcome">Bienvenido</div>
-                            <div class="username">Administrador <strong>@User.Identity.Name</strong></div>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <a asp-action="Category" asp-controller="Admin"><i class="fa fa-table fa-fw fa-3x"></i>Categoria</a>
-                </li>
-                <li>
-                    <a asp-action="AdminPanel" asp-controller="Admin"><i class="fa fa-arrow-left fa-fw fa-3x"></i>Regresar al Panel</a>
-                </li>
-            </ul>
-            <!-- /#side-menu -->
-        </div>
-        <!-- /.sidebar-collapse -->
-    </nav>
-    <!-- /.navbar-static-side -->
-
-    <div id="page-wrapper">
+@Html.Partial("_HeaderBar")
+@Html.Partial("_AdminBar")
+    <div class="main">
         <div class="row">
             <div class="col-lg-12">
-                <h2 class="page-header text-success"> AGREGAR CATEGORIA </h2>
+                <h5>AGREGAR CATEGORIA</h5> 
             </div>
         </div>
-        <hr>
-        <!-- /.col-lg-12 -->
-        <div class="col-md-6 col-md-offset-3 col-xs-8 col-xs-offset-2">
-            <h3>Categorias Agregadas</h3>
+        <div class="col s12 m6 l8 offset-m3 offset-l2">
             @*@foreach(var cat in Model.Categories){
                 <div>@cat.Name</div>
                 <hr />
             }*@
-            <form asp-action="Category" asp-controller="Admin" method="post">
-                <div asp-validation-summary="ValidationSummary.ModelOnly" class="text-danger"></div>
-                <div class="form-group">
-                    <label asp-for="Name"></label>
-                    <input asp-for="Name" class="form-control" />
-                    <span asp-validation-for="Name" class="text-danger"></span>
-                </div>
-                <button class="btn btn-success pull-right">
-                    <i class="fa fa-check fa-fw fa-x2"></i>Agregar
-                </button>
 
-            </form>
-            <!-- /.panel -->
+            <div class="row">
+                <form asp-action="Category" asp-controller="Admin" method="post">
+                    <div asp-validation-summary="ValidationSummary.ModelOnly" class="text-danger"></div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <label asp-for="Name"></label>
+                            <input asp-for="Name" />
+                            <span asp-validation-for="Name" class="red-text"></span>
+                        </div>
+                    </div>
+                        <button class="btn btn-success pull-right">Agregar
+                        </button>
+            
+                </form>
+            </div>
         </div>
-        <!-- /.col-lg-8 -->
     </div>
-    <!-- /.row -->
-</div>
-<!-- /#page-wrapper -->
 @section Scripts {
     @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
 }

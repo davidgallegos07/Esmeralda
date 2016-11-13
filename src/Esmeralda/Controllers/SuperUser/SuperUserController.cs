@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Mvc;
 using Esmeralda.Models;
+using Microsoft.AspNet.Authorization;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -17,6 +18,7 @@ namespace Esmeralda.Controllers.SuperUser
         {
             _context = context;
         }
+        [Authorize(Roles ="SuperUser")]
         // GET: /SuperUser/
         public IActionResult SuperUser()
         {

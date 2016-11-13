@@ -14,7 +14,7 @@ namespace Esmeralda.Controllers.Account
         private UserManager<ApplicationUser> _userManager;
         private EsmeraldaContext _context;
         private IEsmeraldaRepository _repository;
-        private RoleManager<ApplicationUser> _roleManager;
+   
 
 
         // GET: /<controller>/
@@ -23,16 +23,15 @@ namespace Esmeralda.Controllers.Account
             return View();
         }
         public AuthController(SignInManager<ApplicationUser> signInManager, UserManager<ApplicationUser> userManager
-            , EsmeraldaContext context, IEsmeraldaRepository repository, RoleManager<ApplicationUser> roleManager) //agregar ctor sign in
+            , EsmeraldaContext context, IEsmeraldaRepository repository) //agregar ctor sign in
         {
             _signInManager = signInManager;
             _userManager = userManager;
             _context = context;
             _repository = repository;
-            _roleManager = roleManager;
         }
         //  GET: /Auth/Login
-        public IActionResult Login() // this metod si el usuario trata de ingresar aunque ya este logeado
+        public IActionResult Login() // method si el usuario trata de ingresar aunque ya este logeado
         {
 
             if (User.Identity.IsAuthenticated)
@@ -125,16 +124,11 @@ namespace Esmeralda.Controllers.Account
                 };
                 if (userVerfication == null && emailVerification == null)
                 {
-                    var userManager = await _userManager.CreateAsync(newUser, vm.Password);
+                    var result = await _userManager.CreateAsync(newUser, vm.Password);
 
-                    if (userManager.Succeeded)
+                    if (result.Succeeded)
                     {
-                        if (!await _roleManager.RoleExistsAsync("User"))
-                        {
-                            var rolesStore = new RoleStore<IdentityRole>(_context);
-                            await rolesStore.CreateAsync(new IdentityRole("User"));
-                        }
-
+                        
                         await _userManager.AddToRoleAsync(newUser, "User");
 
                         var user = new UserProfile()
@@ -163,11 +157,9 @@ namespace Esmeralda.Controllers.Account
                         _context.UserProfileCreditCards.Add(userProfileCreditCard);
                         await _context.SaveChangesAsync();
 
-
-
-                        return RedirectToAction("Confirmation", vm.Email);
+                        return RedirectToAction("Login");
                     }
-
+                    AddErrors(result);
                 }
                 else
                 {
@@ -182,13 +174,15 @@ namespace Esmeralda.Controllers.Account
                 }
             }
 
-
+           
+            ViewBag.AllMonths = vm.AllMonths;
+            ViewBag.AllYears = vm.AllYears;
             return View(vm);
         }
         //  GET: /Auth/Confirmation
-        public IActionResult Confirmation(string email)
+        public IActionResult Confirmation()
         {
-            ViewBag.Confirmation = email;
+            
             return View();
         }
         //  POST: /Auth/RegisterAdmin
@@ -214,21 +208,17 @@ namespace Esmeralda.Controllers.Account
 
                     if (result.Succeeded)
                     {
-                        if (!await _roleManager.RoleExistsAsync("Admin"))
-                        {
-                            var rolesStore = new RoleStore<IdentityRole>(_context);
-                            await rolesStore.CreateAsync(new IdentityRole("Admin"));
-                        }
+                  
                         await _userManager.AddToRoleAsync(newUser, "Admin");
                         var Admin = new AdminProfile()
                         {
                             ApplicationUserId = newUser.Id,
-
+                            ImageUrl = "/img/restaurants/userdefault.png"
                         };
                         _context.AdminProfiles.Add(Admin);
                         await _context.SaveChangesAsync();
 
-                        return RedirectToAction("Confirmation");
+                        return RedirectToAction("Login"); //changed before confirmation view
                     }
                     AddErrors(result);
                 }
@@ -248,6 +238,12 @@ namespace Esmeralda.Controllers.Account
             }
 
             return View(vm);
+        }
+
+        //GET://TermsConditions
+        public IActionResult TermsConditions()
+        {
+            return View();
         }
         private void AddErrors(IdentityResult result)
         {

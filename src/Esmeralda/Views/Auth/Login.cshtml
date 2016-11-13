@@ -2,29 +2,33 @@
 @{
     ViewData["title"] = "Login";
 }
-
+@Html.Partial("_NavBarFullUser")
 <div class="row">
-    <div class="col-md-6 col-md-offset-3 col-xs-8 col-xs-offset-2">
-        <form method="post" novalidate>
-            <h2 class="text-black"><i class="fa fa-lock fa-fw "></i>Login</h2>
-            <div asp-validation-summary="ValidationSummary.ModelOnly" class="text-danger"></div>
-            <div class="form-group login-panel">
-
-                <div class="form-group">
-                    <label asp-for="UserName"></label>
-                    <input asp-for="UserName" class="form-control" />
-                    <span asp-validation-for="UserName" class="text-danger"></span>
+    <div class="col s12 m10 l6 offset-m1 offset-l3">
+        <form asp-action="Login" asp-controller="Auth" method="post">
+            <h4>Login</h4>
+            <div asp-validation-summary="ValidationSummary.ModelOnly" class="red-text"></div>
+            <div class="formpanel">
+                <div class="row">
+                    <div class="input-field s12">
+                        <label asp-for="UserName"></label>
+                        <input asp-for="UserName" />
+                        <span asp-validation-for="UserName" class="red-text"></span>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label asp-for="Password"></label>
-                    <input type="password" asp-for="Password" class="form-control" />
-                    <span asp-validation-for="Password" class="text-danger"></span>
+                <div class="row">
+                    <div class="input-field s12">
+                        <label asp-for="Password"></label>
+                        <input type="password" asp-for="Password" class="validation" />
+                        <span asp-validation-for="Password" class="red-text"></span>
+                    </div>
                 </div>
-                <div class="form-group">
+                <div class="input-field s12">
                     <input type="submit" value="Login" class="btn btn-primary" />
                 </div>
                 <div class="pull-right">
-                    <a asp-controller="Auth" asp-action="Register">Registrate</a>
+                    Todavía no tienes cuenta?
+                    <a asp-controller="Auth" asp-action="RegisterUser">Registrate</a>
                 </div>
 
             </div>

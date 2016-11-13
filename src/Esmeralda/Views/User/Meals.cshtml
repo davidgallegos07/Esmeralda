@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Esmeralda.Models.Meal>
+
+@{
+    ViewBag.Title = "Manage";
+}
+@Html.Partial("_HeaderBar")
+
+@if (User.IsInRole("Admin"))
+{
+
+    @Html.Partial("_AdminBar")
+}
+
+
+@if (User.IsInRole("User"))
+{
+
+    @Html.Partial("_UserBar")
+}
+
+@if (!User.IsInRole("User") && (!User.IsInRole("Admin")))
+{
+
+    @Html.Partial("_DefaultUserBar")
+}
+
+<div class="main">
+    <div class="col-lg-12">
+        <h5>ALIMENTOS</h5>
+    </div>
+    <div class="row">
+        <div class="col m12 l12">
+            <div class="grid-rest">
+                @foreach (var item in Model)
+            {
+                    <div class="col s12 m3 l2">
+                        <div class="card">
+                            <div class="card-content">
+                                <a asp-action="Meals" asp-controller="User" asp-route-id="@item.MealId">
+                                    <div class="col s12">
+                                        <img src="~/img/coming-soon_logo.png" class="circle responsive-img"/>
+                                    </div>
+                                </a>
+                                <div class="divider"></div>
+
+                                <p>@Html.DisplayFor(modeItem => item.MealName)</p>
+                                <p>Precio: @Html.DisplayFor(modelItem => item.Price)</p>
+                                <a asp-action="Buy" asp-route-id="@item.MealId" class="btn btn-sm btn-danger">Comprar</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

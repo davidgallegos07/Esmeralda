@@ -14,7 +14,8 @@
     "Microsoft.Extensions.Configuration": "1.0.0-rc1-final",
     "EntityFramework.Commands": "7.0.0-rc1-final",
     "Microsoft.AspNet.Identity.EntityFramework": "3.0.0-rc1-final",
-    "Microsoft.AspNet.Tooling.Razor": "1.0.0-rc1-final"
+    "Microsoft.AspNet.Tooling.Razor": "1.0.0-rc1-final",
+    "Microsoft.IdentityModel.Protocols": "2.0.0-rc1-211161024"
   },
 
   "commands": {
@@ -23,7 +24,11 @@
   },
 
   "frameworks": {
-    "dnx451": { },
+    "dnx451": {
+      "frameworkAssemblies": {
+        "System.configuration": "4.0.0.0"
+      }
+    },
     "dnxcore50": { }
   },
 

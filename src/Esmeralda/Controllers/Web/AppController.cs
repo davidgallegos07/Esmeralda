@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Mvc;
 using Esmeralda.Models;
 using Microsoft.AspNet.Authorization;
+using Microsoft.Data.Entity;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -25,5 +26,18 @@ namespace Esmeralda.Controllers.Web
             return View();
         }
 
+        public IActionResult Restaurants()
+        {
+            //var role = _context.Roles.SingleOrDefault(m => m.Name == "Admin");
+            //var adminRole = _context.Users.Where(m => m.Roles.Any(r => r.RoleId == role.Id));
+            //return View(adminRole);
+            var restaurants = _context.AdminProfiles.ToList();
+            return View(restaurants);
+        }
+        public IActionResult Meals(int id)
+        {
+            var meals = _context.Meals.Where(m => m.Category.AdminProfileId == id);
+            return View();
+        }
     }
 }

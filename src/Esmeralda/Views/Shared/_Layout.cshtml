@@ -3,7 +3,7 @@
 <head prefix="og: http://ogp.me/ns#">
     <meta name="viewport" content="width=device-width" />
     <title>@ViewData["title"]</title>
-    <link href="~/img/food.png" rel="icon" />
+    <link href="~/img/logos/gf-logo-green.png" rel="icon" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="description" content="Esta pagina esta dedicada a toda
@@ -14,23 +14,17 @@
     <meta property="og:type" content="website" />
     <meta property="og:title" content="GOFOOD" />
     <meta property="og:description" content="Esta pagina esta dedicada a toda
-                                             persona que desea hacer una compra de cualquier alimento en la cafeteria de UABC,
-                                             de manera rapida,segura y sin largas filas de espera." />
-    @*<meta property="og:image" content="~/img/gf.png" />*@
+    persona que desea hacer una compra de cualquier alimento en la cafeteria de UABC,
+    de manera rapida,segura y sin largas filas de espera." />
     <link rel="author" href="http://gofood.com" />
-    <!--rating-->
-    @*<link href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">*@
-    <!-- bootstrap -->
-    <link href="~/css/bootstrap.css" rel="stylesheet" />
+    <!--Materialize-->
+    <link href="~/lib/materialize/dist/css/materialize.css" rel="stylesheet" />
+    <!--FontAwesome-->
     <link href="~/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
-    <!-- goofood css -->
-    <link href="~/css/gofood-admin.css" rel="stylesheet" />
+    <!--GFCSS-->
+    <link href="~/css/gofoodcss.css" rel="stylesheet" />
 </head>
 <body>
-    <div class="alert alert-warning alert-dismissible" role="alert" style="margin-bottom:0;height:80px;">
-        <button type="button" class="close" data-dissmiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span> </button>
-        <strong>CUPON:<mark> GF2016 </mark>    </strong> Utiliza tu cupon y aprovecha la oferta del 50% de descuento en tu primera compra.
-    </div>
     <script>
         window.fbAsyncInit = function () {
             FB.init({
@@ -50,77 +44,37 @@
     </script>
     <div id="fb-root"></div>
     <script>
-(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.6&appId=918503044963058";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.6&appId=918503044963058";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+
     <div id="wrapper">
-        <nav class="navbar navbar-default navbar-static-top" role="navigation">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <div>
-                    <a class="navbar-brand" asp-controller="App" asp-action="Index"><img class="brand-logo" src="~/img/food.png" alt="Gofood" /></a>
+    @RenderBody()
+    </div>
+
+    @*<div class="footer">
+            <div class="row">
+                <div class="col-md-12">
+                    <p class="text-center">gofoodapp ©Todos los derechos reservados 2016</p>
+                    <div class="text-right">
+                        <div class="fb-share" data-share="true" data-width="450" data-show-faces="true"></div>
+                        <div class="fb-share-button" data-href="http://Esmeralda20160530093341.azurewebsites.net" data-layout="button" data-mobile-iframe="false"></div>
+                    </div>
                 </div>
             </div>
-            <!-- /.navbar-header -->
-            <ul class="nav navbar-top-links navbar-right">
-                @if (User.Identity.IsAuthenticated == false)
-                {
-                    <li>
-                        <a asp-controller="Account" asp-action="Index"><i class="fa fa-user fa-2x fa-fw"></i></a>
-                    </li>
-
-                }
-                @if (User.Identity.IsAuthenticated)
-                {
-                    <li>
-                        <a asp-controller="User" asp-action="UserPanel"><i class="fa fa-bell-o fa-2x fa-fw"></i><span class="badge">3</span></a>
-                    </li>
-                }
-                @if (User.Identity.IsAuthenticated)
-                 {
-                    <li>
-                        <a asp-controller="Auth" asp-action="Logout"><i class="fa fa-power-off fa-2x fa-fw"></i></a>
-                    </li>          
-                }
-          
-      
-            </ul>
-
-        </nav>
-   
-        <!-- /.navbar-static-top -->
-        @RenderBody()
-
-    </div>
-    <div class="footer">
-        <div class="row">
-            <div class="col-md-12" style="margin-top:20px">
-                <p class="text-center text-clouds">gofoodapp ©Todos los derechos reservados 2016</p>
-                <div class="text-right text-carrot">
-                    <div class="fb-share" data-share="true" data-width="450" data-show-faces="true"></div>
-                    @*Siguenos<a href="https://www.facebook.com/david.gallegosramos"><i class="fa fa-facebook-official fa-fw fa-2x"></i></a>
-                        <a href="https://www.facebook.com/david.gallegosramos"><i class="fa fa fa- fa-fw fa-2x"></i></a>
-                        <a href="https://www.facebook.com/david.gallegosramos"><i class="fa fa-twitter-square fa-fw fa-2x"></i></a>*@
-                    <div class="fb-share-button" data-href="https://www.mindcod3.com" data-layout="button" data-mobile-iframe="false"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- jquery -->
+        </div>*@
+    <!--JQuery-->
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
-    <!-- goofood js -->
-    <script src="~/js/gofood-admin.js"></script>
+    <!--GFJS-->
+    <script src="~/js/gofood.js"></script>
     <script src="~/lib/jquery/dist/jquery.js"></script>
+    <!--MaterializeJS-->
+    <script src="~/lib/materialize/dist/js/materialize.js"></script>
     @RenderSection("Scripts", false)
+    <!--developed by davidgallegos0712 welcome stalkers:)-->
 </body>
 </html>

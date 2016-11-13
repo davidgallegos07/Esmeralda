@@ -11,7 +11,7 @@ namespace Esmeralda.Models
     {
         public EsmeraldaContext()
         {
-          Database.Migrate();
+          //Database.EnsureCreated();
         }
         public DbSet<UserProfile> UserProfiles { get; set; }
         public DbSet<CreditCard> CretditCards { get; set; }
@@ -19,6 +19,7 @@ namespace Esmeralda.Models
         public DbSet<AdminProfile> AdminProfiles { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Meal> Meals { get; set; }
+        public DbSet<ApplicationUser> ApplicationUser { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

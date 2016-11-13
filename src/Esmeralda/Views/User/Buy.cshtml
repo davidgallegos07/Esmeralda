@@ -1,0 +1,54 @@
+﻿@model Esmeralda.Models.Meal
+
+@{
+    ViewBag.Title = "Index";
+}
+@Html.Partial("_HeaderBar")
+
+@if (User.IsInRole("Admin"))
+{
+
+    @Html.Partial("_AdminBar")
+}
+
+
+@if (User.IsInRole("User"))
+{
+
+    @Html.Partial("_UserBar")
+}
+
+@if (!User.IsInRole("User") && (!User.IsInRole("Admin")))
+{
+
+    @Html.Partial("_DefaultUserBar")
+}
+<div class="main">
+    <div class="row">        
+        <div class="col s12 m10 l6 offset-m1 offset-l3">
+            <h5>Alimento</h5>
+            <h6 class="red-text">Esta aplicación solo es de prueba no se hara un ningun cargo a su tarjeta.</h6>
+            @using (Html.BeginForm("Charge", "Book", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                <script src="https://checkout.stripe.com/checkout.js"
+                        class="stripe-button"
+                        data-key="pk_live_cfQhUvTlqiZ0qO1Cvg0N6NaR"
+                        data-amount="@Model.Price"
+                        data-name="@Model.MealName"
+                        data-description='@Model.Description'
+                        data-image="/img/coming-soon_logo.png">
+
+                </script>
+            }
+
+        </div>
+</div></div>
+
+
+<script src="~/js/payment-validations.js"></script>
+<script src="~/js/jquery.payment.js"></script>
+<script src="~/js/respond.min.js"></script>
+@section Scripts{
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,24 @@
+﻿<div>
+    <ul id="slide-out" class="side-nav fixed">
+        @*<li class=""><img class="center responsive-img" src="img/logo.jpg" alt="logo"></li>*@
+        <li><p>@User.Identity.Name</p></li>
+        <li class="no-padding">
+            <ul class="collapsible collapsible-accordion">
+                <li>
+                    <a class="collapsible-header"><i class="fa fa-cutlery fa-fw"></i>Mis Alimentos</a>
+                    <div class="collapsible-body">
+                        <ul>
+                            <li class="waves-effect waves-block"><a asp-action="Manage" asp-controller="Admin">Ver Alimentos</a></li>
+                            <li class="waves-effect waves-block"><a asp-action="Category" asp-controller="Admin">Categorias</a></li>
+                            <li class="waves-effect waves-block"><a asp-action="Create" asp-controller="Admin">Agregar</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </li>
+        <li class="waves-effect waves-block"><a asp-action="Reports" asp-controller="Admin"><i class="fa fa-area-chart fa-fw"></i>Reportes</a></li>
+        <li class="waves-effect waves-block"><a asp-action="Configuration" asp-controller="Admin"><i class="fa fa-wrench fa-fw"></i>Configuración</a></li>
+        <li class="waves-effect waves-block"><a asp-action="Logout" asp-controller="Auth"><i class="fa fa-power-off fa-fw"></i>Logout</a></li>
+    </ul>
+    <a href="#" data-activates="slide-out" class="button-collapse"></a>
+</div>

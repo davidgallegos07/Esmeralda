@@ -1,8 +1,30 @@
-﻿@{
+﻿@model IEnumerable<Esmeralda.Models.ApplicationUser>
+@{
     ViewBag.Title = "Restaurantes";
 }
+@Html.Partial("_HeaderBar")
 
-<div id="wrapper"  ng-app="ui.bootstrap.demo">
+@if (User.IsInRole("Admin"))
+{
+
+    @Html.Partial("_AdminBar")
+}
+
+
+@if (User.IsInRole("User"))
+{
+
+    @Html.Partial("_UserBar")
+}
+
+@if (!User.IsInRole("User") && (!User.IsInRole("Admin")))
+{
+
+    @Html.Partial("_DefaultUserBar")
+}
+
+
+<div class="main" ng-app="ui.bootstrap.demo">
     <nav class="navbar-default navbar-static-side" role="navigation">
         <div class="sidebar-collapse">
             <ul class="nav" id="side-menu">
@@ -25,7 +47,7 @@
                     <a asp-action="Restaurants" asp-controller="User"><i class="fa fa-cutlery fa-fw fa-3x"></i>Restaurantes</a>
                 </li>
                 <li>
-                    <a asp-action="Configuration" asp-controller="User"><i class="fa fa-wrench fa-fw fa-3x"></i>Configuracion</a>
+                    <a asp-action="Configuration" asp-controller="User"><i class="fa fa-wrench fa-fw fa-3x"></i>Configuración</a>
                 </li>
             </ul>
             <!-- /#side-menu -->
@@ -42,120 +64,113 @@
         </div>
         <!-- /.col-lg-12 -->
         <hr>
-            <div class="rfow">
-                @*<div class="col-lg-10 col-xs-12 col-lg-offset-1">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <i class="fa fa-cutlery fa-fw"></i>Restaurantes
-                            <div class="input-group ">
-                                <input type="text" class="form-control" placeholder="Buscar...">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-default" type="button">
-                                        <i class="fa fa-search"></i>
-                                    </button>
-                                </span>
-                            </div>
-                        </div>*@
-
-                        <!--RESTAURANTES PANEL-->
-                        <div class="rtow">
-                            <table class="table-condensed" ng-controller="RatingDemoCtrl">
-                                <tr>
-                                    <td>
-                                        <a href="r1.html">
-                                            <img class="img-circle" style="width: 100px;" src="~/img/comidachina.jpg" />
-                                        </a>
-                                        Rating<uib-rating ng-model="rate" max="max" read-only="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null" titles="['one','two','three']" aria-labelledby="default-rating" class="text-warning"></uib-rating>(1078)
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <a href="r2.html">
-                                            <img class="img-circle" style="width: 100px;" src="~/img/deligourmet.png" />                                            
-                                        </a>
-                                        Rating<uib-rating ng-model="rate" max="max" read-only="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null" titles="['one','two','three']" aria-labelledby="default-rating" class="text-warning"></uib-rating>(8538)
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <a href="r3.html">
-                                            <img class="img-circle" style="width: 100px;" src="~/img/giussepis.jpg" />                                            
-                                        </a>
-                                        Rating<uib-rating ng-model="rate" max="max" read-only="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null" titles="['one','two','three']" aria-labelledby="default-rating" class="text-warning"></uib-rating>(2588)
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <a href="r4.html">
-                                            <img class="img-circle" style="width: 100px;" src="~/img/ricardos.jpg" />                                            
-                                        </a>
-                                        Rating<uib-rating ng-model="rate" max="max" read-only="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null" titles="['one','two','three']" aria-labelledby="default-rating" class="text-warning"></uib-rating>(4578)
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <a href="r5.html">
-                                            <img class="img-circle" style="width: 100px;" src="~/img/postres.png" />
-                                        </a>
-                                        Rating<uib-rating ng-model="rate" max="max" read-only="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null" titles="['one','two','three']" aria-labelledby="default-rating" class="text-warning"></uib-rating>(3378)
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <a href="r6.html">
-                                            <img class="img-circle" style="width: 100px;" src="~/img/tonka.jpg" />                                            
-                                        </a>
-                                        Rating<uib-rating ng-model="rate" max="max" read-only="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null" titles="['one','two','three']" aria-labelledby="default-rating" class="text-warning"></uib-rating>(3208)
-                                    </td>
-                                </tr>
-                            </table>
+        <div class="rfow">
+            @*<div class="col-lg-10 col-xs-12 col-lg-offset-1">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <i class="fa fa-cutlery fa-fw"></i>Restaurantes
+                        <div class="input-group ">
+                            <input type="text" class="form-control" placeholder="Buscar...">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="button">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </span>
                         </div>
-                        <!--CIERRA RESTAURANTES PANEL-->
-                        <!-- /.panel-heading -->
-                        <!-- /.panel-body -->
-                    @*</div>
-            <!-- /.panel-body -->
-        </div>
-        <!-- /.panel -->
-    </div>
-    <!-- /.col-lg-8 -->
-    <!-- /.col-lg-4 -->
-    <!-- Trigger the modal with a button -->
-    <!-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button> -->
-    <!-- Modal -->
-    <div id="myModal" class="modal fade" role="dialog">
-        <div class="modal-dialog">
+                    </div>*@
 
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title text-danger">Eliminar</h4>
-                </div>
-                <div class="modal-body">
-                    <p>Estas seguro de Eliminar este alimento?</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">
-                        <i class="fa fa-trash-o fa-fw fa-x2"></i>Eliminar
-                    </button>
-                </div>
+            <!--RESTAURANTES PANEL-->
+            <div class="rtow">
+                <table class="table-condensed" ng-controller="RatingDemoCtrl">
+                    <tr>
+                        <td>
+                            <a asp-action="Meals" asp-controller="User">
+                                <img class="img-circle" style="width: 100px;" src="~/img/comidachina.jpg" />
+                            </a>
+                            <div class="stars">
+                                <i> </i>
+                            </div>
+                            
+                            @*Rating<uib-rating ng-model="rate" max="max" read-only="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null" titles="['one','two','three']" aria-labelledby="default-rating" class="text-warning"></uib-rating>(1078)*@
+
+                        </td>
+                        @*<td>
+                                <a asp-action="Meals" asp-route-id="@Model.Id" class="btn btn-sm btn-primary">Ver alimientos</a>
+                            </td>*@
+                    </tr>
+                    <tr>
+                        <td>
+
+                            <img class="img-circle" style="width: 100px;" src="~/img/deligourmet.png" />
+
+                            @*Rating<uib-rating ng-model="rate" max="max" read-only="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null" titles="['one','two','three']" aria-labelledby="default-rating" class="text-warning"></uib-rating>(8538)*@
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+
+                            <img class="img-circle" style="width: 100px;" src="~/img/giussepis.jpg" />
+
+                            @*Rating<uib-rating ng-model="rate" max="max" read-only="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null" titles="['one','two','three']" aria-labelledby="default-rating" class="text-warning"></uib-rating>(2588)*@
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+
+                            <img class="img-circle" style="width: 100px;" src="~/img/ricardos.jpg" />
+
+                            @*Rating<uib-rating ng-model="rate" max="max" read-only="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null" titles="['one','two','three']" aria-labelledby="default-rating" class="text-warning"></uib-rating>(4578)*@
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+
+                            <img class="img-circle" style="width: 100px;" src="~/img/postres.png" />
+
+                            @*Rating<uib-rating ng-model="rate" max="max" read-only="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null" titles="['one','two','three']" aria-labelledby="default-rating" class="text-warning"></uib-rating>(3378)*@
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+
+                            <img class="img-circle" style="width: 100px;" src="~/img/tonka.jpg" />
+
+                            @*Rating<uib-rating ng-model="rate" max="max" read-only="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null" titles="['one','two','three']" aria-labelledby="default-rating" class="text-warning"></uib-rating>(3208)*@
+                        </td>
+                    </tr>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                <img class="img-circle" style="width: 100px;" src="~/img/coming-soon_logo.png" />
+                            </td>
+                            <td>
+                                @item.UserName          
+                            </td>
+                            <td>
+                                <a asp-action="Meals" asp-route-id="@item.Id" class="btn btn-sm btn-primary">Ver alimientos</a>
+                            </td>
+                        </tr>
+                    }
+                </table>
             </div>
-
-        </div>
-    </div>*@
+            <!--CIERRA RESTAURANTES PANEL-->
+            <!-- /.panel-heading -->
+            <!-- /.panel-body -->
         </div>
     </div>
 </div>
-<!-- /#page-wrapper -->
+
+
+
+
 <script src="~/lib/angular/angular.js"></script>
 <script src="~/lib/angular-animate/angular-animate.js"></script>
 <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-1.3.3.js"></script>
 <script src="~/js/example.js"></script>
-
-
 @section Scripts{
     @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+
 
 

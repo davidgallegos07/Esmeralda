@@ -20,6 +20,11 @@ namespace Esmeralda.Models
             return _context.Meals.SingleOrDefaultAsync(m => m.MealId == id);
         }
 
+        public Task<ApplicationUser> FindUser(string id)
+        {
+            return _context.Users.SingleOrDefaultAsync(m => m.Id == id);
+        }
+
         public IEnumerable<SelectListItem> GetMealsCategory(string userName, int selected)
         {
             var category = _context.Categories.ToList()
