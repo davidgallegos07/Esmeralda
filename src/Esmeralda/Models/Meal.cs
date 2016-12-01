@@ -12,6 +12,7 @@ namespace Esmeralda.Models
         public string Description { get; set; }
         public decimal Price { get; set; }
         public decimal Cal { get; set; }
+        public decimal Estimation { get; set; }
         public int CategoryId { get; set; }
         public Category Category { get; set; }
     }

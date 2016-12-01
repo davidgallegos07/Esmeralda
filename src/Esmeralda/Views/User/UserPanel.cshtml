@@ -5,73 +5,64 @@
 @Html.Partial("_UserBar")
 <div class="main">
     <div class="row">
-        <div class="col-lg-12">
-            <h5> ORDENES </h5>
+        <div class="col l12">
+            <h5>ORDENES</h5>
         </div>
     </div>
     <div class="row">
-        <div class="l10 s12 l-offset-1">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <div class="input-group ">
-                        <input type="text" class="form-control" placeholder="Buscar...">
-                        <span class="input-group-btn">
-                            <button class="btn btn-default" type="button">
-                                <i class="fa fa-search"></i>
-                            </button>
-                        </span>
+        <form>
+            <div class="row">
+                <div class="col s12 card">
+                    <div class="col s10 m11 searchtable no-padding">
+                        <input type="text" placeholder="Search" />
+                    </div>
+                    <div class="col s2 m1 searchtable no-padding">
+                        <input type="submit" class="btnsearch" />
                     </div>
                 </div>
-                <!-- /.panel-heading -->
-                <div class="panel-body">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="table-responsive">
-                                <table class="table table-striped">
-                                    <thead>
-                                        <tr>
-                                            <th># Orden</th>
-                                            <th>Fecha</th>
-                                            <th>Hora</th>
-                                            <th>Costo</th>
-                                            <th class="text-center">Cronometro</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>3326</td>
-                                            <td>10/21/2016</td>
-                                            <td>3:29 PM</td>
-                                            <td>$321.33</td>
-                                            <td><button class="btn btn-success btn-small btn-sm center-block "><i class="fa fa-check-circle fa-fw"></i></button></td>
-                                        </tr>
-                                        <tr>
-                                            <td>3327</td>
-                                            <td>10/21/2016</td>
-                                            <td>3:29 PM</td>
-                                            <td>$321.33</td>
-                                            <td><button class="btn btn-success btn-small btn-sm center-block "><i class="fa fa-check-circle fa-fw"></i></button></td>
-                                        </tr>
-                                        <tr>
-                                            <td>3328</td>
-                                            <td>9/31/2016</td>
-                                            <td>3:29 PM</td>
-                                            <td>$321.33</td>
-                                            <td class="red-text text-center">07:58  left    <i class="fa fa-hourglass-end"></i></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <!-- /.table-responsive -->
-                        </div>
-                    </div>
-                    <!-- /.row -->
-                </div>
-                <!-- /.panel-body -->
+
             </div>
-            <!-- /.panel-body -->
+        </form>
+        <div class="row">
+            <div class="col m12 s12">
+                <div class="responsive-table">
+                    <table class="table striped">
+                        <thead>
+                            <tr>
+                                <th># Orden</th>
+                                <th>Fecha</th>
+                                <th>Hora</th>
+                                <th>Costo</th>
+                                <th class="text-center">Cronometro</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>3326</td>
+                                <td>10/21/2016</td>
+                                <td>3:29 PM</td>
+                                <td>$321.33</td>
+                                <td><i class="fa fa-check-circle fa-fw green-text"></i></td>
+                            </tr>
+                            <tr>
+                                <td>3327</td>
+                                <td>10/21/2016</td>
+                                <td>3:29 PM</td>
+                                <td>$321.33</td>
+                                <td><i class="fa fa-check-circle fa-fw green-text"></i></td>
+                            </tr>
+                            <tr>
+                                <td>3328</td>
+                                <td>9/31/2016</td>
+                                <td>3:29 PM</td>
+                                <td>$321.33</td>
+                                <td class="red-text text-center">07:58  left    <i class="fa fa-hourglass-end"></i></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
-        <!-- /.panel -->
     </div>
 </div>
 @section Scripts{

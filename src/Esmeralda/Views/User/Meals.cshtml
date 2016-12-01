@@ -36,7 +36,7 @@
                     <div class="col s12 m3 l2">
                         <div class="card">
                             <div class="card-content">
-                                <a asp-action="Meals" asp-controller="User" asp-route-id="@item.MealId">
+                                <a asp-action="Buy" asp-controller="User" asp-route-id="@item.MealId">
                                     <div class="col s12">
                                         <img src="~/img/coming-soon_logo.png" class="circle responsive-img"/>
                                     </div>
@@ -44,7 +44,7 @@
                                 <div class="divider"></div>
 
                                 <p>@Html.DisplayFor(modeItem => item.MealName)</p>
-                                <p>Precio: @Html.DisplayFor(modelItem => item.Price)</p>
+                                <p>Precio: $ @Html.DisplayFor(modelItem => item.Price)</p>
                                 <a asp-action="Buy" asp-route-id="@item.MealId" class="btn btn-sm btn-danger">Comprar</a>
                             </div>
                         </div>

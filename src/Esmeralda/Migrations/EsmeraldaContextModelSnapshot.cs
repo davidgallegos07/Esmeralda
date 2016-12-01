@@ -123,6 +123,8 @@ namespace Esmeralda.Migrations
 
                     b.Property<string>("Description");
 
+                    b.Property<decimal>("Estimation");
+
                     b.Property<string>("MealName");
 
                     b.Property<decimal>("Price");

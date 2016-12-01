@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 using System.Linq;
 using Esmeralda.ViewModels;
 using Microsoft.IdentityModel.Protocols;
+using Microsoft.Extensions.Configuration;
+using Esmeralda.Configuration;
+using Microsoft.Extensions.OptionsModel;
+using Stripe;
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace Esmeralda.Controllers.Web
@@ -14,13 +18,16 @@ namespace Esmeralda.Controllers.Web
     {
         private IEsmeraldaRepository _repository;
         private EsmeraldaContext _context;
+        private PaymentSettings _paymentSettings;
+
 
         // GET: /<controller>/
 
-        public UserController(IEsmeraldaRepository repository, EsmeraldaContext context)
+        public UserController(IEsmeraldaRepository repository, EsmeraldaContext context, IOptions<PaymentSettings> paymentSettings)
         {
             _repository = repository;
             _context = context;
+            _paymentSettings = paymentSettings.Value;
         }
         [Authorize(Roles = "User")]
         public IActionResult UserPanel()
@@ -48,20 +55,36 @@ namespace Esmeralda.Controllers.Web
                          
             return View(meals);
         }
-        [Authorize]
-        public async Task<IActionResult> BuyNow(int id)
-        {
-            Meal meal = await _repository.FindMeal(id);
-            ViewBag.Category = _repository.GetMealsCategory(User.GetUserName(), meal.CategoryId);
 
+        [Authorize]
+        public IActionResult Buy(int id)
+        {
+            var meal =  _context.Meals.SingleOrDefault(m => m.MealId == id);
+            meal.Price = meal.Price / (decimal) 0.20; 
+
+            ViewBag.StripeKey = _paymentSettings.StripePublicKey;
             return View(meal);
         }
-        public async Task<ActionResult> Buy(int id)
+        [HttpPost]
+        [ValidateAntiForgeryToken()]
+        public IActionResult Charge(MealViewModel vm)
         {
-            Meal meal = await _repository.FindMeal(id);
+            var user = _context.Users.SingleOrDefault(m => m.Id == User.GetUserId());
+            var myCharge = new StripeChargeCreateOptions()
+            {
+                Amount = (int)vm.Price,
+                Currency = "usd",
+                SourceTokenOrExistingSourceId = vm.StripeToken,
+            };
+            var chargeService = new StripeChargeService();
+            StripeCharge stripeCharge = chargeService.Create(myCharge);
+            vm.Price = vm.Price * (decimal)0.2;
+            return View("Estimation", vm);
+        }
 
-            //ViewBag.Category = _repository.GetMealsCategory(User.GetUserName(), meal.CategoryId);
-            return View(meal);
+        public IActionResult Estimation()
+        {
+            return View();
         }
     }
 }

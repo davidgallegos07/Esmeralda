@@ -2958,7 +2958,7 @@ footer.page-footer .footer-copyright {
   overflow: hidden;
   height: 50px;
   line-height: 50px;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(0, 0, 0, 0.8);
   background-color: rgba(51, 51, 51, 0.08);
 }
 
@@ -4105,7 +4105,7 @@ nav .button-collapse {
 }
 
 nav .button-collapse i {
-  font-size: 2.7rem;
+  font-size: 1.6rem;
   height: 56px;
   line-height: 56px;
 }
@@ -4896,7 +4896,7 @@ small {
   height: 36px;
   line-height: 36px;
   outline: 0;
-  padding: 0 2rem;
+  padding: 0 1rem;
   text-transform: uppercase;
   vertical-align: middle;
   -webkit-tap-highlight-color: transparent;
@@ -5389,7 +5389,7 @@ button.btn-floating {
 
 .collapsible-header i {
   width: 2rem;
-  font-size: 1.6rem;
+  /*font-size: 1.6rem;*/
   line-height: 3rem;
   display: block;
   float: left;

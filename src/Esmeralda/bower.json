@@ -3,11 +3,15 @@
   "private": true,
   "dependencies": {
     "jquery": "*",
-    "font-awesome": "4.4.0",
+    "font-awesome": "4.7.0",
     "jquery-validation": "1.14.0",
     "jquery-validation-unobtrusive": "~3.2.6",
     "angular": "1.4.6",
     "angular-animate": "1.4.6",
-    "materialize": "*"
+    "materialize": "*",
+    "countdown360": "0.1.9"
+  },
+  "resolutions": {
+    "jquery": ">=1.8"
   }
 }

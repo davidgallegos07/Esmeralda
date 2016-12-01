@@ -1,11 +1,13 @@
 ﻿<div>
     <ul id="slide-out" class="side-nav fixed">
         @*<li class=""><img class="center responsive-img" src="img/logo.jpg" alt="logo"></li>*@
-        <li><p>@User.Identity.Name</p></li>
+        <li class="waves-effect waves-block"><a asp-action="AdminPanel" asp-controller="Admin"><i class="fa fa-user-circle fa-fw fa-2x"></i>@User.Identity.Name</a></li>
         <li class="no-padding">
             <ul class="collapsible collapsible-accordion">
                 <li>
-                    <a class="collapsible-header"><i class="fa fa-cutlery fa-fw"></i>Mis Alimentos</a>
+                    <a class="collapsible-header">
+                        <i class="fa fa-cutlery fa-fw"></i>Mis Alimentos <span class="fa fa-angle-down"> </span>
+                    </a>
                     <div class="collapsible-body">
                         <ul>
                             <li class="waves-effect waves-block"><a asp-action="Manage" asp-controller="Admin">Ver Alimentos</a></li>

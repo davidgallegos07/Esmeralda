@@ -11,7 +11,10 @@ namespace Esmeralda.Models
     {
         public EsmeraldaContext()
         {
-          //Database.EnsureCreated();
+            //Database.EnsureDeleted();
+            //Database.EnsureCreated();
+            //Database.Migrate();
+
         }
         public DbSet<UserProfile> UserProfiles { get; set; }
         public DbSet<CreditCard> CretditCards { get; set; }

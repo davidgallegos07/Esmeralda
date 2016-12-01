@@ -6,34 +6,30 @@
 @Html.Partial("_HeaderBar")
 @Html.Partial("_AdminBar")
     <div class="main">
-        <div class="row">
-            <div class="col-lg-12">
-                <h5>AGREGAR CATEGORIA</h5> 
-            </div>
-        </div>
-        <div class="col s12 m6 l8 offset-m3 offset-l2">
-            @*@foreach(var cat in Model.Categories){
-                <div>@cat.Name</div>
-                <hr />
-            }*@
-
-            <div class="row">
-                <form asp-action="Category" asp-controller="Admin" method="post">
-                    <div asp-validation-summary="ValidationSummary.ModelOnly" class="text-danger"></div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <label asp-for="Name"></label>
-                            <input asp-for="Name" />
-                            <span asp-validation-for="Name" class="red-text"></span>
-                        </div>
-                    </div>
-                        <button class="btn btn-success pull-right">Agregar
-                        </button>
-            
-                </form>
-            </div>
+    <div class="row">
+        <div class="col l12">
+            <h5>AGREGAR CATEGORIA</h5>
         </div>
     </div>
+    <div class="row">
+        <div class="col s12 m12 l10 offset-l1">
+            <form asp-action="Category" asp-controller="Admin" method="post">
+                <div asp-validation-summary="ValidationSummary.ModelOnly" class="text-danger"></div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <label asp-for="Name"></label>
+                        <input asp-for="Name" />
+                        <span asp-validation-for="Name" class="red-text"></span>
+                    </div>
+                </div>
+                <button class="btn btn-success pull-right">
+                    Agregar
+                </button>
+
+            </form>
+        </div>
+    </div>
+</div>
 @section Scripts {
     @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
 }

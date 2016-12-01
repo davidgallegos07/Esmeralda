@@ -7,8 +7,8 @@
     });
 
     function refreshValidationMessage() {
-        $('.validation').removeClass('text-danger text-success');
-        $('.validation').addClass($('.has-error').length ? 'text-danger' : 'text-success');
+        $('.validation').removeClass('red-text green-text');
+        $('.validation').addClass($('.has-error').length ? 'red-text' : 'green-success');
     }
 
     $.fn.toggleInputError = function (erred) {

@@ -6,14 +6,14 @@
 
     @Html.Partial("_AdminBar")
 }
-    
+
 
 @if (User.IsInRole("User"))
 {
 
     @Html.Partial("_UserBar")
 }
-    
+
 @if (!User.IsInRole("User") && (!User.IsInRole("Admin")))
 {
 
@@ -21,81 +21,34 @@
 }
 
 <div class="main">
-    <h4>Restaurantes</h4>
+    <div class="row">
+        <div class="col 12">
+            <h5>RESTAURANTES</h5>
+        </div>
+    </div>
     <div class="sectionthree">
         <div class="row">
-            <div class="col m12 l12">
+            <div class="col s12 m12 l12">
                 <div class="grid-rest">
                     @foreach (var item in Model)
                     {
                         <div class="col s12 m3 l2">
                             <div class="card">
                                 <div class="card-content">
-                                    <a asp-action="Meals" asp-controller="User" asp-route-id="@item.AdminProfileId"><img class="responsive-img" src="~/img/restaurants/userdefault.png" /></a>
+                                    <div class="center">
+                                        <a asp-action="Meals" asp-controller="User" asp-route-id="@item.AdminProfileId"><img class="responsive-img" src="~/img/restaurants/userdefault.png" /></a>
+                                    </div>                                    
                                     <div class="divider"></div>
-                                    <p>
-                                        
-                                    </p>
-                                    <p>
-                                        Los mejores burritos en la FCA.El creador de ircomida y que esta arriba.
-                                    </p>
+                                    <p>Los mejores restaurantes en gofood</p>
                                 </div>
                             </div>
                         </div>
                     }
-
-                   @* 
-                    <div class="col s12 m3 l2">
-                        <div class="card">
-                            <div class="card-content">
-                                <a asp-action="Meals" ><img class="responsive-img" src="~/img/restaunrants/postres2.png" /></a>
-                                <div class="divider"></div>
-                                <p>
-                                    Lorem Ipsum es simplemente el texto texto.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col s12 m3 l2">
-        <div class="card">
-            <div class="card-content">
-                <img class="responsive-img" src="~/img/restaunrants/ricardos2.jpg" />
-
-                <div class="divider"></div>
-                <p>
-                    Lorem Ipsum es simplemente el texto de relleno.
-                </p>
-            </div>
-        </div>
-    </div>
-    <div class="col s12 m3 l2">
-        <div class="card">
-            <div class="card-content">
-                <img class="responsive-img" src="~/img/restaunrants/tonka2.jpg" />
-
-                <div class="divider"></div>
-                <p>
-                    Lorem Ipsum es simplemente el texto de relleno.
-                </p>
-            </div>
-        </div>
-    </div>
-    <div class="col s12 m3 l2">
-        <div class="card">
-            <div class="card-content">
-                <img class="responsive-img" src="~/img/restaunrants/giussepis2.jpg" />
-
-                <div class="divider"></div>
-                <p>
-                    Lorem Ipsum es simplemente el texto de.
-                </p>
-            </div>
-        </div>
-    </div>*@
                 </div>
-
             </div>
         </div>
     </div>
 </div>
-<!-- /sectiothree ------------------------------------------>
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

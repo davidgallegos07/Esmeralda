@@ -1,7 +1,6 @@
 ﻿@model Esmeralda.Models.Meal
-
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Buy";
 }
 @Html.Partial("_HeaderBar")
 
@@ -24,31 +23,103 @@
     @Html.Partial("_DefaultUserBar")
 }
 <div class="main">
-    <div class="row">        
-        <div class="col s12 m10 l6 offset-m1 offset-l3">
-            <h5>Alimento</h5>
-            <h6 class="red-text">Esta aplicación solo es de prueba no se hara un ningun cargo a su tarjeta.</h6>
-            @using (Html.BeginForm("Charge", "Book", FormMethod.Post))
-            {
-                @Html.AntiForgeryToken()
-                <script src="https://checkout.stripe.com/checkout.js"
-                        class="stripe-button"
-                        data-key="pk_live_cfQhUvTlqiZ0qO1Cvg0N6NaR"
-                        data-amount="@Model.Price"
-                        data-name="@Model.MealName"
-                        data-description='@Model.Description'
-                        data-image="/img/coming-soon_logo.png">
+    <div class="row">
+        <div class="col s12 m6 l6 offset-m3 offset-l3">
+            <h5>Tú Orden</h5>
+            <div class="chip">
+                <img src="~/img/coming-soon_logo.png" alt="Contact Person"/>
+                @Model.Description
+            </div>
+            <div class="right">
+                
+            </div>
+            Precio: $ @(@Model.Price * (decimal)0.2)
 
-                </script>
-            }
+            <form asp-action="Charge" method="POST" id="payment-form">
+                <span class="payment-errors red-text"></span>
+
+                <div class="row">
+                    <div class="input-field col s12 m12 l12"> 
+                        <label>Card Number</label>                       
+                        <input type="text" size="20" data-stripe="number" placeholder="•••• •••• •••• ••••">                  
+                    </div>
+                </div>
+                
+                <div class="row">  
+                    <div class="input-field col s3 m2">
+                        <label>Expiration</label>
+                        <input type="text" size="2" data-stripe="exp_month" placeholder="mm">
+                    </div>
+                    <div class="input-field col 1 m1">
+                        <p>/</p>    
+                    </div>               
+                        <div class="input-field col s3 m2">
+                            <input type="text" size="2" data-stripe="exp_year" placeholder="yy">
+                        </div>
+                </div>
+                    <div class="row">
+                        <div class="input-field col s3 m2">
+                            <label>cvc</label>
+                            <input type="text" size="4" data-stripe="cvc" placeholder="123">
+                        </div>
+                    </div>
+                    <input type="submit" class="submit btn waves-effect waves-light" value="Pagar">
+
+                @Html.HiddenFor(i => i.MealId)
+                @Html.HiddenFor(n => n.MealName)
+                @Html.HiddenFor(d => d.Description)
+                @Html.HiddenFor(p => p.Price)
+                @Html.HiddenFor(e => e.Estimation)
+            </form>
 
         </div>
-</div></div>
+    </div>
+</div>
+@section scripts{
+    <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+    <script type="text/javascript" src="~/js/payment-validations.js"></script>
+    <script type="text/javascript" src="~/js/jquery.payment.js"></script>
+<script type="text/javascript">
+    Stripe.setPublishableKey("pk_test_CILjvpejMSBplW1CnPSlGKWc");
+
+    $(function () {
+        var $form = $('#payment-form');
+        $form.submit(function (event) {
+            // Disable the submit button to prevent repeated clicks:
+            $form.find('.submit').prop('disabled', true);
+
+            // Request a token from Stripe:
+            Stripe.card.createToken($form, stripeResponseHandler);
+
+            // Prevent the form from being submitted:
+            return false;
+        });
+    });
+
+    function stripeResponseHandler(status, response) {
+        // Grab the form:
+        var $form = $('#payment-form');
+
+        if (response.error) { // Problem!
+
+            // Show the errors on the form:
+            $form.find('.payment-errors').text(response.error.message);
+            $form.find('.submit').prop('disabled', false); // Re-enable submission
+
+        } else { // Token was created!
+
+            // Get the token ID:
+            var token = response.id;
+
+            // Insert the token ID into the form so it gets submitted to the server:
+            $form.append($('<input type="hidden" name="stripeToken">').val(token));
+
+            // Submit the form:
+            $form.get(0).submit();
+        }
+    };
+</script>
 
 
-<script src="~/js/payment-validations.js"></script>
-<script src="~/js/jquery.payment.js"></script>
-<script src="~/js/respond.min.js"></script>
-@section Scripts{
-    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+

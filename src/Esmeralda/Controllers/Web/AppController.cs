@@ -28,9 +28,6 @@ namespace Esmeralda.Controllers.Web
 
         public IActionResult Restaurants()
         {
-            //var role = _context.Roles.SingleOrDefault(m => m.Name == "Admin");
-            //var adminRole = _context.Users.Where(m => m.Roles.Any(r => r.RoleId == role.Id));
-            //return View(adminRole);
             var restaurants = _context.AdminProfiles.ToList();
             return View(restaurants);
         }

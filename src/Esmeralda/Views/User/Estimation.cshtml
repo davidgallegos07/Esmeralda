@@ -1,0 +1,57 @@
+﻿@model Esmeralda.ViewModels.MealViewModel
+@{
+    ViewBag.Title = "Estimation";
+}
+@Html.Partial("_HeaderBar")
+
+@if (User.IsInRole("Admin"))
+{
+
+    @Html.Partial("_AdminBar")
+}
+
+
+@if (User.IsInRole("User"))
+{
+
+    @Html.Partial("_UserBar")
+}
+
+@if (!User.IsInRole("User") && (!User.IsInRole("Admin")))
+{
+
+    @Html.Partial("_DefaultUserBar")
+}
+<div class="main">
+    <div class="row">
+        <div class="col s12 m6 l6 offset-m3 offset-l3">
+            <h5>Estamos preparando tú orden</h5>
+            <div class="chip">
+                <img src="~/img/coming-soon_logo.png" alt="Contact Person" />
+               @Model.MealName- @Model.Description
+            </div>
+            <div class="right">
+
+            </div>
+            Total: $ @Model.Price
+            <div id="countdown" class="center"></div>
+        </div>
+    </div>
+</div>
+@section scripts{ 
+<script src="~/lib/countdown360/dist/jquery.countdown360.js"></script>
+<script type="text/javascript">
+    $("#countdown").countdown360({
+        radius: 60.5,
+        seconds: @(@Model.Estimation * 60),
+        strokeWidth: 3,
+        fillStyle: '#FFFFFF',
+        strokeStyle: '#CC3366',
+        fontSize: 50,
+        fontColor: '#000000',
+        autostart: false,
+        onComplete: function () { console.log('completed') }
+    }).start()
+</script>
+
+}

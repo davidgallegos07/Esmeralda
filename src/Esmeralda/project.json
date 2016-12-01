@@ -5,17 +5,19 @@
   },
 
   "dependencies": {
-    "Microsoft.AspNet.Mvc": "6.0.0-rc1-final",
-    "Microsoft.AspNet.Server.Kestrel": "1.0.0-rc1-final",
-    "Microsoft.AspNet.StaticFiles": "1.0.0-rc1-final",
-    "Microsoft.AspNet.Mvc.TagHelpers": "6.0.0-rc1-final",
+    "EntityFramework.Commands": "7.0.0-rc1-final",
     "EntityFramework.Core": "7.0.0-rc1-final",
     "EntityFramework.MicrosoftSqlServer": "7.0.0-rc1-final",
-    "Microsoft.Extensions.Configuration": "1.0.0-rc1-final",
-    "EntityFramework.Commands": "7.0.0-rc1-final",
     "Microsoft.AspNet.Identity.EntityFramework": "3.0.0-rc1-final",
+    "Microsoft.AspNet.Mvc": "6.0.0-rc1-final",
+    "Microsoft.AspNet.Mvc.TagHelpers": "6.0.0-rc1-final",
+    "Microsoft.AspNet.Server.Kestrel": "1.0.0-rc1-final",
+    "Microsoft.AspNet.StaticFiles": "1.0.0-rc1-final",
     "Microsoft.AspNet.Tooling.Razor": "1.0.0-rc1-final",
-    "Microsoft.IdentityModel.Protocols": "2.0.0-rc1-211161024"
+    "Microsoft.Extensions.Configuration": "1.0.0-rc1-final",
+    "Microsoft.Extensions.Configuration.UserSecrets": "1.0.0-rc1-final",
+    "Microsoft.IdentityModel.Protocols": "2.0.0-rc1-211161024",
+    "Stripe.net": "6.11.0"
   },
 
   "commands": {
@@ -25,9 +27,7 @@
 
   "frameworks": {
     "dnx451": {
-      "frameworkAssemblies": {
-        "System.configuration": "4.0.0.0"
-      }
+      
     },
     "dnxcore50": { }
   },
@@ -42,5 +42,6 @@
   ],
   "scripts": {
     "prepublish": [ "npm install", "bower install" ]
-  }
+  },
+  "userSecretsId": "aspnet-Esmeralda-20161113090207"
 }

@@ -3,8 +3,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Mvc;
 using Microsoft.AspNet.Authorization;
 using Esmeralda.Models;
-using System.Security.Claims; // getusername
-using Microsoft.Data.Entity; // include linq
+using System.Security.Claims;
+using Microsoft.Data.Entity; 
 using Esmeralda.ViewModels;
 using System;
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
@@ -27,20 +27,13 @@ namespace Esmeralda.Controllers.Web
         // GET: /<AdminPanel>/
         public IActionResult AdminPanel()
         {
-            //var meal = from m in _context.Meals
-            //           select m;
-            //if (!String.IsNullOrEmpty(search))
-            //{
-            //    meal = meal.Where(m => m.MealName.Contains(search));
-            //}
+
             return View();
         }
         // GET: /Manage/
         public IActionResult Manage(string search)
         {
-            //var viewmodel = new ManageDataViewModel(); // cat & meals
-            //viewmodel.Meals = _context.Meals
-            //    .Where(c => c.Category.UserName == User.GetUserName());
+
             var meal = _context.Meals
                 .Where(c => c.Category.UserName == User.GetUserName());
             if (!String.IsNullOrEmpty(search))
@@ -69,7 +62,8 @@ namespace Esmeralda.Controllers.Web
                     Description = vm.Description,
                     Price = vm.Price,
                     Cal = vm.Cal,
-                    CategoryId = vm.CategoryId
+                    CategoryId = vm.CategoryId,
+                    Estimation = vm.Estimation
                 };
 
                 _context.Meals.Add(meal);
@@ -95,14 +89,8 @@ namespace Esmeralda.Controllers.Web
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Update(int id,
-           [Bind("MealName", "Description", "Price", "Cal", "CategoryId")] Meal meal)
+           [Bind("MealName", "Description", "Price", "Cal", "CategoryId", "Estimation")] Meal meal)
         {
-            //meal.MealId = id
-            //Meal findid = await _repository.FindMeal(id);
-            //if(findid == null)
-            //{
-            //    return HttpNotFound(); 
-            //}
             if (ModelState.IsValid)
             {
                 meal.MealId = id;
@@ -121,10 +109,6 @@ namespace Esmeralda.Controllers.Web
         public async Task<IActionResult> Details(int id)
         {
             Meal meal = await _repository.FindMeal(id);
-            //if(meal == null)
-            //{
-            //    return HttpNotFound();
-            //}
             ViewBag.Category = _repository.GetMealsCategory(User.GetUserName(), meal.CategoryId);
 
             return View(meal);
@@ -133,10 +117,6 @@ namespace Esmeralda.Controllers.Web
         public async Task<IActionResult> Delete(int id)
         {
             Meal meal = await _repository.FindMeal(id);
-            //if(meal == null)
-            //{
-            //    return HttpNotFound();
-            //}
             _context.Meals.Remove(meal);
             _context.SaveChanges();
             return RedirectToAction("Manage");
@@ -156,7 +136,7 @@ namespace Esmeralda.Controllers.Web
             {
                 var admin = _context.AdminProfiles
                                            .Where(a => a.ApplicationUserId == User.GetUserId())
-                                           .Select(a => a.AdminProfileId).SingleOrDefault(); // singleor ??
+                                           .Select(a => a.AdminProfileId).SingleOrDefault();
                 var cat = new Category
                 {
                     Name = vm.Name,
